@@ -26,6 +26,7 @@
             border: 2px solid #000000;
             box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
         }
+        /* СТИЛИ ШАПКИ КАК НА СКРИНШОТЕ */
         .top-banner {
             height: 115px;
             position: relative;
@@ -61,12 +62,15 @@
             font-weight: bold; font-size: 15px; text-decoration: none; color: #000;
             position: absolute; right: 15px; top: 38px; box-shadow: 1px 1px 0px #000;
         }
+
+        /* Синяя полоса меню */
         .nav-bar {
             background-color: #3F72B5; color: #FFFFFF; padding: 5px;
             text-align: center; font-size: 13px; word-spacing: 3px; border-bottom: 1px solid #000;
         }
         .nav-bar a { color: white; text-decoration: none; font-weight: bold; cursor: pointer; }
         .nav-bar a:hover { text-decoration: underline; }
+
         .main-content { display: flex; padding: 12px; gap: 12px; }
         .page-section { display: none; }
         .page-section.active { display: block; }
@@ -99,6 +103,7 @@
         .login-box label { display: block; margin-top: 4px; }
         .login-box input { width: 92%; margin-bottom: 6px; font-size: 11px; }
         
+        /* CSS LEGO-НУБИК */
         .css-noob-character { width: 100px; height: 140px; margin: 15px auto; position: relative; display: flex; flex-direction: column; align-items: center; }
         .css-noob-character .noob-head { width: 32px; height: 32px; background-color: #FBD116; border: 2px solid #000000; border-radius: 4px; position: relative; z-index: 3; }
         .css-noob-character .noob-head::before { content: '•  •'; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #000; position: absolute; top: 2px; left: 4px; }
@@ -157,7 +162,7 @@
             <span style="font-size:11px; font-weight:normal; line-height:1.2; display:block;">This website is<br>COPPA compliant</span>
         </div>
         <div onclick="showPage('parents-section')" class="parents-link-button">Parents Click Here</div>
-    </div> <!-- ВОТ ЭТОТ ТЕГ ЗАКРЫВАЕТ ЛЕВУЮ КОЛОНКУ НАМЕРТВО -->
+    </div> <!-- ЭТОТ ТЕГ НАМЕРТВО УДЕРЖИВАЕТ ЛЕВУЮ КОЛОНКУ НА СВОЕМ МЕСТЕ -->
     <style>
         .center-zone { flex-grow: 1; padding-left: 5px; }
         .welcome-title { color: #333; margin-top: 0; font-size: 26px; border-bottom: 1px solid #ccc; padding-bottom: 3px; margin-bottom: 5px; }
@@ -185,11 +190,14 @@
             display: flex; justify-content: space-around; align-items: flex-start; padding-top: 5px; box-sizing: border-box; transform: rotate(-10deg);
         }
         .brick-stud { width: 24px; height: 12px; background-color: #333333; border: 2px solid #000; border-radius: 50%; margin-top: -16px; }
-        .download-bar-yellow { 
-            background-color: #FBD116; color: #000; padding: 10px; font-size: 24px; font-weight: bold; 
-            text-align: center; border: 3px solid #000; position: absolute; bottom: 15px; left: 15px; right: 15px; 
-            box-sizing: border-box; text-decoration: none; display: block; box-shadow: 2px 2px 0px #000; cursor: pointer;
+        
+        /* КНОПКА ЗАПУСКА ОФИЦИАЛЬНОГО Окна КЛИЕНТА РОБЛОКСА */
+        .launcher-btn-green {
+            background-color: #4E8C4E; color: white; font-size: 26px; font-weight: bold;
+            border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer;
+            box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS'; text-align: center; text-decoration: none; display: block;
         }
+        .launcher-btn-green:active { box-shadow: 0px 0px 0px #000; transform: translate(3px, 3px); }
     </style>
     <div class="center-zone">
         <!-- HOME PAGE -->
@@ -214,7 +222,7 @@
                 <div class="banner-title">Build It...</div>
                 <div class="lego-brick-flat"><div class="brick-stud"></div><div class="brick-stud"></div><div class="brick-stud"></div></div>
                 <div class="banner-pc-text">Works with your Windows PC!</div>
-                <div onclick="alert('Извините, но клиент MegaBLOX пока что в разработке')" class="download-bar-yellow">FREE - Download and Play!</div>
+                <a href="https://roblox.com" target="_blank" class="download-bar-yellow">FREE - Launch Roblox Installer!</a>
             </div>
         </div>
 
@@ -237,14 +245,14 @@
                 <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('crossroads')">
                     <div style="width: 100%; height: 90px; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; border: 1px solid #808080;"></div>
                     <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Crossroads (2007)</div>
-                    <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: BuildMaster07<br><span style="color: #4E8C4E; font-weight: bold;">● 96 online</span></div>
+                    <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: Roblox<br><span style="color: #4E8C4E; font-weight: bold;">● 96 online</span></div>
                 </div>
 
-                <!-- КАРТОЧКА BASEPLATE С ЗИНХРОНИЗАЦИЕЙ В 3D ИГРЕ -->
+                <!-- КАРТОЧКА BASEPLATE -->
                 <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('baseplate')">
-                    <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:20px; text-shadow:1px 1px 2px #000;">3D</div>
-                    <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Baseplate (3D PLAY)</div>
-                    <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: <b>Telamon</b><br><span style="color: #E20005; font-weight: bold;">● 3D LIVE ENGINE</span></div>
+                    <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:20px; text-shadow:1px 1px 2px #000;">MAP</div>
+                    <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Baseplate (2007)</div>
+                    <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: Roblox<br><span style="color: #4E8C4E; font-weight: bold;">● 12 online</span></div>
                 </div>
             </div>
         </div>
@@ -255,9 +263,10 @@
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Crossroads</h2>
-                        <p style="font-size: 13px; margin: 0; color:#333;">Легендарная arena для brickbattle сражений! Используй ракетницу, бомбы и рогатку.</p>
+                        <p style="font-size: 13px; margin: 0; color:#333;">Легендарная арена для brickbattle сражений! Клик по кнопке мгновенно откроет официальный лаунчер Roblox на твоем ПК.</p>
                     </div>
-                    <button onclick="launchGameSim()" style="background-color: #FBD116; color: #000; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000;">PLAY</button>
+                    <!-- ПРЯМОЙ ЗАПУСК КЛИЕНТА ДЛЯ КРОССРОУДС (PLACE ID: 1818) -->
+                    <button onclick="launchOfficialRobloxApp(1818)" class="launcher-btn-green">PLAY ROBLOX</button>
                 </div>
             </div>
             <div class="comments-section">
@@ -268,25 +277,23 @@
                     <button onclick="sendGameComment()">Добавить отзыв</button>
                 </div>
             </div>
-            <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
+            <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад</button>
         </div>
 
-        <!-- СТРАНИЦА ИГРЫ BASEPLATE С ОКНОМ КЛИЕНТА THREE.JS -->
+        <!-- СТРАНИЦА ИГРЫ BASEPLATE -->
         <div id="game-details-baseplate" class="page-section">
-            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                <div style="flex-grow: 1;">
-                    <h2 style="margin:0 0 3px 0; color:#172D69; font-style: italic;">Classic Baseplate</h2>
-                    <p style="font-family: Arial, sans-serif; font-size: 11px; margin:0 0 8px 0; color:#555;">Creator: <b>Telamon</b> | Запуск в окне браузера!</p>
-                    <p style="font-size: 12px; margin: 0; color:#333;">Управление в 3D: Ходить на <b>W, A, S, D</b>, прыгать на <b>Пробел</b>.</p>
-                </div>
-                <button onclick="startInBrowser3DGame()" style="background-color: #4E8C4E; color: white; font-size: 24px; font-weight: bold; border: 3px solid #000; padding: 10px 30px; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family:'Comic Sans MS';">PLAY 3D LIVE</button>
-            </div>
-            <div id="roblox-3d-canvas-container" style="width: 100%; height: 350px; background-color: #000; border: 3px solid #000; position: relative; overflow: hidden; display: none;">
-                <div id="loading-3d-screen" style="position: absolute; width: 100%; height: 100%; background: #161616; color: #FBD116; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 20px; font-weight: bold; z-index: 99;">
-                    <div>Loading MegaBLOX 3D Client...</div>
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: linear-gradient(#4a8c4a, #3b6e3b); flex-shrink: 0;"></div>
+                <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Baseplate</h2>
+                        <p style="font-size: 13px; margin: 0; color:#333;">Классическое зеленое поле Роблокса. Клик откроет лаунчер приложения.</p>
+                    </div>
+                    <!-- ПРЯМОЙ ЗАПУСК КЛИЕНТА ДЛЯ БЕЙСПЛЕЙТ (PLACE ID: 9521323380) -->
+                    <button onclick="launchOfficialRobloxApp(9521323380)" class="launcher-btn-green">PLAY ROBLOX</button>
                 </div>
             </div>
-            <button onclick="stop3DGameEngine(); showPage('games');" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Выйти из игры</button>
+            <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад</button>
         </div>
         <!-- CATALOG -->
         <div id="catalog" class="page-section">
@@ -311,28 +318,28 @@
             
             <div id="parent-step-unlock" class="parent-box-panel" style="display: none;">
                 <h3 style="margin:0 0 12px 0; color:#172D69;">Панель заблокирована</h3>
-                <label style="font-size:13px;"><b>Введите родительский пароль</b>:</label>
+                <label style="font-size:13px;"><b>Введите родительский пароль</b> для изменения настроек:</label>
                 <input type="password" id="parent-unlock-password-input" class="parent-input-field">
                 <br><br>
-                <button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти</button>
+                <button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти в настройки</button>
             </div>
 
             <div id="parent-step-age" class="parent-box-panel" style="display: none;">
                 <h3 style="margin:0 0 12px 0; color:#172D69;">Регистрация Родительского Контроля</h3>
-                <p style="font-size:12px; color:#c00; font-weight:bold; margin-top:-5px;" id="parent-warning-login">⚠️ Войдите в аккаунт персонажа!</p>
-                <label style="font-size:13px;"><b>Сколько лет вашему ребёнку?</b> (0 - 14):</label>
+                <p style="font-size:12px; color:#c00; font-weight:bold; margin-top:-5px;" id="parent-warning-login">⚠️ Войдите в аккаунт персонажа, чтобы настроить контроль!</p>
+                <label style="font-size:13px;"><b>Сколько лет вашему ребёнку?</b> (Лимит: 0 - 14):</label>
                 <input type="number" id="parent-child-age-input" class="parent-input-field">
                 <br><br>
-                <button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить</button>
+                <button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить &gt;</button>
             </div>
             <div id="parent-step-settings" class="parent-box-panel" style="display: none;">
                 <h3 style="margin:0 0 5px 0; color:#4E8C4E;">Настройки безопасности</h3>
-                <p style="font-size:12px; color:#555; margin:0 0 15px 0;">Персонаж: <b id="display-parent-user"></b> (Возраст: <span id="display-parent-age"></span> лет)</p>
+                <p style="font-size:12px; color:#555; margin:0 0 15px 0;">Персонаж: <b id="display-parent-user" style="color:#E20005;"></b> (Возраст: <span id="display-parent-age" style="font-weight:bold;"></span> лет)</p>
                 <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку писать в чат?</div><div class="parent-btn-group"><button id="p-chat-yes" class="parent-choice-btn" onclick="saveParentPermission('chat', 'yes')">Да</button><button id="p-chat-no" class="parent-choice-btn" onclick="saveParentPermission('chat', 'no')">Нет</button></div></div>
                 <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку покупать вещи?</div><div class="parent-btn-group"><button id="p-catalog-yes" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'yes')">Да</button><button id="p-catalog-no" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'no')">Нет</button></div></div>
                 <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку писать в форумы?</div><div class="parent-btn-group"><button id="p-forum-yes" class="parent-choice-btn" onclick="saveParentPermission('forum', 'yes')">Да</button><button id="p-forum-no" class="parent-choice-btn" onclick="saveParentPermission('forum', 'no')">Нет</button></div></div>
                 <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку добавлять в друзья?</div><div class="parent-btn-group"><button id="p-friends-yes" class="parent-choice-btn" onclick="saveParentPermission('friends', 'yes')">Да</button><button id="p-friends-no" class="parent-choice-btn" onclick="saveParentPermission('friends', 'no')">Нет</button></div></div>
-                <button onclick="goToPasswordQuestionStep()" class="parent-btn-next">Сохранить настройки</button>
+                <button onclick="goToPasswordQuestionStep()" class="parent-btn-next">Сохранить эти настройки &gt;</button>
             </div>
 
             <div id="parent-step-ask-password" class="parent-box-panel" style="display: none;">
@@ -349,14 +356,13 @@
                 <button onclick="submitNewSecureParentPassword()" class="parent-btn-next" style="background:#4E8C4E; color:white;">Подтвердить</button>
             </div>
         </div> <!-- Конец parents-section -->
-    </div> <!-- ВОТ ЭТОТ ТЕГ ЗАКРЫВАЕТ КОНТЕНТНУЮ ЗОНУ CENTER-ZONE -->
-</div> <!-- ВОТ ЭТОТ ТЕГ ЗАКРЫВАЕТ СЕТКУ MAIN-CONTENT -->
-    <!-- Нижний блок ретро-мест с картинками -->
+    </div> <!-- Закрытие контентной зоны center-zone -->
+</div> <!-- Закрытие сетки main-content -->
     <div class="cool-places-section" style="background-color: #D4D0C8; border-top: 2px solid #000; padding: 10px; margin-top: 15px; width: 100%; box-sizing: border-box;">
         <div style="font-weight:bold; font-size: 13px; padding-left: 5px;">Cool Places</div>
         <div class="places-grid" style="display: flex; justify-content: space-between; margin-top: 8px; gap: 8px;">
-            <div style="width: 24%; height: 110px; background-color: #5E945E; border: 1px solid #000; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 5px; font-size: 11px; font-weight: bold; box-sizing: border-box; background-image: linear-gradient(transparent 60%, rgba(0,0,0,0.7)), url('https://noikcloud.xyz'); background-size: cover; background-position: center; cursor:pointer;" onclick="openGamePage('crossroads')">
-                <div style="font-family: 'Comic Sans MS', sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px;">Crossroads</div>By BuildMaster07<br><span style="color: #4E8C4E; font-weight: bold;">👍 98% (4.1k)</span>
+            <div style="width: 24%; height: 110px; background-color: #5E945E; border: 1px solid #000; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 5px; font-size: 11px; font-weight: bold; box-sizing: border-box; background-image: linear-gradient(transparent 60%, rgba(0,0,0,0.7)), url('https://noikcloud.xyz'); background-size: cover; background-position: center; cursor: pointer;" onclick="openGamePage('crossroads')">
+                <div style="font-family: 'Comic Sans MS', sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px;">Crossroads</div>By Roblox<br><span style="color: #4E8C4E; font-weight: bold;">👍 98% (4.1k)</span>
             </div>
         </div>
     </div>
@@ -364,8 +370,6 @@
         MegaBLOX ©2007. <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
     </div>
 </div> <!-- Закрытие wrapper -->
-
-<script src="https://cloudflare.com"></script>
 <script>
 let currentCurrentUser = localStorage.getItem('megablox_active_session') || "";
 let isLoggedIn = currentCurrentUser !== "";
@@ -395,7 +399,6 @@ function openGamePage(gameKey) {
     if(gameKey === 'crossroads') showPage('game-details-crossroads');
     if(gameKey === 'baseplate') showPage('game-details-baseplate');
 }
-function launchGameSim() { alert("Запуск Crossroads 2007...\n[Успешно! Игра симулирована!]"); }
 
 function setupParentPageUI() {
     document.getElementById('parent-step-unlock').style.display = 'none';
@@ -412,9 +415,9 @@ function setupParentPageUI() {
     else { document.getElementById('parent-step-age').style.display = 'block'; }
 }
 function checkParentAgeLimit() {
-    if (!isLoggedIn) { alert('Войдите в аккаунт!'); return; }
+    if (!isLoggedIn) { alert('Войдите в аккаунт игрока!'); return; }
     const age = parseInt(document.getElementById('parent-child-age-input').value);
-    if (isNaN(age) || age < 0) { alert('Пожалуйста, введите корректный возраст!'); return; }
+    if (isNaN(age) || age < 0) { alert('Введите корректный возраст!'); return; }
     if (age >= 15) { alert('Ошибка! Возраст превышает лимит родительского контроля (15 лет и выше)!'); } 
     else { localStorage.setItem(`parent_age_${currentCurrentUser}`, age); setupParentPageUI(); }
 }
@@ -452,9 +455,9 @@ function renderGameComments() {
 function sendGameComment() {
     if (!isLoggedIn) { alert('Войди в аккаунт!'); return; }
     if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_forum`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку'); return; }
-    const input = document.getElementById('game-comment-input'); const text = input.value.trim(); if (!text) return;
+    const text = document.getElementById('game-comment-input').value.trim(); if (!text) return;
     let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || []; comments.push({ user: currentCurrentUser, text: text });
-    localStorage.setItem('mb_crossroads_comments', JSON.stringify(comments)); input.value = ''; renderGameComments();
+    localStorage.setItem('mb_crossroads_comments', JSON.stringify(comments)); document.getElementById('game-comment-input').value = ''; renderGameComments();
 }
 function renderForumPosts() {
     let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || [{ author: "BuildMaster07", text: "Всем привет!", date: "15.09.2007" }];
@@ -475,59 +478,19 @@ function applyLoginState(name) {
 linkRegister.addEventListener('click', (e) => { e.preventDefault(); const name = inputName.value.trim(); const pass = inputPass.value.trim(); if (!name || !pass) { alert('Введи данные!'); return; } if (localStorage.getItem('mb_user_' + name)) { alert('Ник занят!'); } else { localStorage.setItem('mb_user_' + name, pass); alert(`Аккаунт ${name} создан!`); } });
 btnLogin.addEventListener('click', () => { const name = inputName.value.trim(); const pass = inputPass.value.trim(); if (localStorage.getItem('mb_user_' + name) === pass && pass) { localStorage.setItem('megablox_active_session', name); window.location.reload(); } else { alert('Неверные данные!'); } });
 document.getElementById('main-nav').addEventListener('click', (e) => { if (e.target.tagName === 'A' && e.target.hasAttribute('data-page')) showPage(e.target.getAttribute('data-page')); });
-let scene3D, camera3D, renderer3D, noobMesh, animationId;
-let moveControls = { forward: false, backward: false, left: false, right: false, jump: false };
-let isJumping = false, verticalVelocity = 0;
 
-function startInBrowser3DGame() {
-    const container = document.getElementById('roblox-3d-canvas-container'); container.style.display = 'block';
-    document.getElementById('loading-3d-screen').style.display = 'flex';
-    scene3D = new THREE.Scene(); scene3D.background = new THREE.Color(0x6EB5FF);
-    camera3D = new THREE.PerspectiveCamera(60, container.clientWidth / 350, 0.1, 1000);
-    renderer3D = new THREE.WebGLRenderer({ antialias: true }); renderer3D.setSize(container.clientWidth, 350);
-    const oldCanvas = container.querySelector('canvas'); if(oldCanvas) container.removeChild(oldCanvas);
-    container.appendChild(renderer3D.domElement);
+// НАСТОЯЩИЙ ИНТЕРАКТИВНЫЙ ЛАУНЧЕР ОФИЦИАЛЬНОГО КЛИЕНТА ROBLOX
+function launchOfficialRobloxApp(placeId) {
+    if (!isLoggedIn) { 
+        alert('Пожалуйста, войдите в аккаунт на сайте перед началом игры!'); 
+        return; 
+    }
+    // Ретро-окно лаунчера 2007 года
+    alert(`[MegaBLOX Launcher 2007]\n\nИнициализация лаунчера...\nПодключение к официальному серверу Roblox (Place ID: ${placeId})\nИгрок: ${currentCurrentUser}\n\nНажмите "ОК", чтобы браузер передал секретную команду и автоматически запустил клиент Roblox на вашем компьютере!`);
 
-    const light = new THREE.DirectionalLight(0xffffff, 1.2); light.position.set(20, 40, 20); scene3D.add(light);
-    scene3D.add(new THREE.AmbientLight(0x666666));
-    const plateGeo = new THREE.BoxGeometry(400, 2, 400); const plateMat = new THREE.MeshLambertMaterial({ color: 0x4E8C4E });
-    const baseplate = new THREE.Mesh(plateGeo, plateMat); baseplate.position.y = -1; scene3D.add(baseplate);
-    const grid = new THREE.GridHelper(400, 100, 0x3B6E3B, 0x447A44); grid.position.y = 0.05; scene3D.add(grid);
-
-    noobMesh = new THREE.Group();
-    const headGeo = new THREE.BoxGeometry(1.2, 1.2, 1.2); const yellowMat = new THREE.MeshLambertMaterial({ color: 0xFBD116 });
-    const head = new THREE.Mesh(headGeo, yellowMat); head.position.y = 3.3; noobMesh.add(head);
-    const torsoGeo = new THREE.BoxGeometry(2, 1.8, 1); const blueMat = new THREE.MeshLambertMaterial({ color: 0x3F72B5 });
-    const torso = new THREE.Mesh(torsoGeo, blueMat); torso.position.y = 1.9; noobMesh.add(torso);
-    const legGeo = new THREE.BoxGeometry(0.9, 1, 0.9); const greenMat = new THREE.MeshLambertMaterial({ color: 0x4E8C4E });
-    const leftLeg = new THREE.Mesh(legGeo, greenMat); leftLeg.position.set(-0.5, 0.5, 0); noobMesh.add(leftLeg);
-    const rightLeg = new THREE.Mesh(legGeo, greenMat); rightLeg.position.set(0.5, 0.5, 0); noobMesh.add(rightLeg);
-    scene3D.add(noobMesh); noobMesh.position.set(0, 0, 0);
-
-    window.addEventListener('keydown', handle3DKeyDown); window.addEventListener('keyup', handle3DKeyUp);
-    setTimeout(() => { document.getElementById('loading-3d-screen').style.display = 'none'; }, 1000);
-    run3DGameLoop();
+    // Официальный вызов URI-протокола лаунчера Роблокса
+    window.location.href = "roblox://browserLaunch/1/placeId=" + placeId;
 }
-function handle3DKeyDown(e) {
-    if(['KeyW', 'ArrowUp'].includes(e.code)) moveControls.forward = true; if(['KeyS', 'ArrowDown'].includes(e.code)) moveControls.backward = true;
-    if(['KeyA', 'ArrowLeft'].includes(e.code)) moveControls.left = true; if(['KeyD', 'ArrowRight'].includes(e.code)) moveControls.right = true;
-    if(e.code === 'Space') moveControls.jump = true;
-}
-function handle3DKeyUp(e) {
-    if(['KeyW', 'ArrowUp'].includes(e.code)) moveControls.forward = false; if(['KeyS', 'ArrowDown'].includes(e.code)) moveControls.backward = false;
-    if(['KeyA', 'ArrowLeft'].includes(e.code)) moveControls.left = false; if(['KeyD', 'ArrowRight'].includes(e.code)) moveControls.right = false;
-    if(e.code === 'Space') moveControls.jump = false;
-}
-function run3DGameLoop() {
-    animationId = requestAnimationFrame(run3DGameLoop); const speed = 0.15;
-    if (moveControls.forward) { noobMesh.position.z -= speed; noobMesh.rotation.y = Math.PI; } if (moveControls.backward) { noobMesh.position.z += speed; noobMesh.rotation.y = 0; }
-    if (moveControls.left) { noobMesh.position.x -= speed; noobMesh.rotation.y = -Math.PI / 2; } if (moveControls.right) { noobMesh.position.x += speed; noobMesh.rotation.y = Math.PI / 2; }
-    if (moveControls.jump && !isJumping) { isJumping = true; verticalVelocity = 0.25; }
-    if (isJumping) { noobMesh.position.y += verticalVelocity; verticalVelocity -= 0.015; if (noobMesh.position.y <= 0) { noobMesh.position.y = 0; isJumping = false; verticalVelocity = 0; } }
-    camera3D.position.set(noobMesh.position.x, noobMesh.position.y + 6, noobMesh.position.z + 12); camera3D.lookAt(noobMesh.position.x, noobMesh.position.y + 2, noobMesh.position.z);
-    renderer3D.render(scene3D, camera3D);
-}
-function stop3DGameEngine() { cancelAnimationFrame(animationId); window.removeEventListener('keydown', handle3DKeyDown); window.removeEventListener('keyup', handle3DKeyUp); document.getElementById('roblox-3d-canvas-container').style.display = 'none'; }
 renderForumPosts();
 </script>
 </body>
