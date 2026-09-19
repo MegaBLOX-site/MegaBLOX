@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MegaBLOX Virtual Playworld</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
+            background-color: #5A5D5A;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .wrapper {
+            width: 900px;
+            background-color: #FFFFFF;
+            border: 2px solid #000000;
+        }
+
+        /* Твоя панорамная шапка */
+        .top-banner {
+            height: 115px;
+            position: relative;
+            border-bottom: 2px solid #000;
+            background-color: #799263;
+            overflow: hidden;
+        }
+        .header-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            position: absolute;
+            top: 0; left: 0; z-index: 1;
+        }
+        .header-overlay {
+            position: relative; width: 100%; height: 100%; z-index: 5;
+        }
+        .login-mini-box { 
+            font-size: 11px; font-family: Arial, sans-serif; color: #000;
+            position: absolute; left: 8px; top: 4px; font-weight: bold;
+        }
+        .logo-main-text {
+            font-size: 52px; font-weight: bold; color: #E20005;
+            text-shadow: 2px 2px 0px #000; letter-spacing: -3px; font-style: italic;
+            position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); margin: 0;
+        }
+        .logo-sub-text {
+            font-size: 12px; color: #FFFFFF; font-weight: bold; text-shadow: 1px 1px 2px #000;
+            position: absolute; left: 50%; top: 78%; transform: translateX(-50%); width: 100%; text-align: center;
+        }
+        .sign-up-btn {
+            background-color: #FBD116; border: 2px solid #000; padding: 6px 16px;
+            font-weight: bold; font-size: 15px; text-decoration: none; color: #000;
+            position: absolute; right: 15px; top: 38px; box-shadow: 1px 1px 0px #000;
+        }
+
+        /* Синее меню */
+        .nav-bar {
+            background-color: #3F72B5; color: #FFFFFF; padding: 5px;
+            text-align: center; font-size: 13px; word-spacing: 3px; border-bottom: 1px solid #000;
+        }
+        .nav-bar a { color: white; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .nav-bar a:hover { text-decoration: underline; }
+
+        .main-content { display: flex; padding: 12px; gap: 12px; }
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="top-banner">
+        <img src="https://noikcloud.xyz/6p8kq2m" class="header-bg-img" alt="Canyon Header">
+        <div class="header-overlay">
+            <div class="login-mini-box">Login</div>
+            <h1 class="logo-main-text">MegaBLOX</h1>
+            <div class="logo-sub-text">Builders Club: The Ultimate Holiday Gift</div>
+            <a href="#" class="sign-up-btn">Sign Up and Play &gt;</a>
+        </div>
+    </div>
+    <div class="nav-bar" id="main-nav">
+        <a data-page="my-megabloox">My MegaBLOX</a> | 
+        <a data-page="main-home">Home</a> | 
+        <a data-page="games">Games</a> | 
+        <a data-page="catalog">Catalog</a> | 
+        <a data-page="forum">Forum</a> | 
+        <a href="#">Help</a>
+    </div>
+    <div class="main-content">
+    <style>
+        .left-sidebar { width: 175px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+        .login-box { border: 1px solid #7F9DB9; background-color: #F2F2F2; padding: 8px; font-size: 11px; margin-bottom: 15px; width: 100%; box-sizing: border-box; }
+        .login-box h3 { margin: 0 0 8px 0; font-size: 12px; background-color: #D4D0C8; padding: 2px; border: 1px solid #808080; font-weight: normal; }
+        .login-box label { display: block; margin-top: 4px; }
+        .login-box input { width: 92%; margin-bottom: 6px; font-size: 11px; }
+        
+        /* CSS-НУБИК */
+        .css-noob-character {
+            width: 100px; height: 140px; margin: 15px auto; position: relative; display: flex; flex-direction: column; align-items: center;
+        }
+        .css-noob-character .noob-head { width: 32px; height: 32px; background-color: #FBD116; border: 2px solid #000000; border-radius: 4px; position: relative; z-index: 3; }
+        .css-noob-character .noob-head::before { content: '•  •'; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #000; position: absolute; top: 2px; left: 4px; }
+        .css-noob-character .noob-head::after { content: '◡'; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #000; position: absolute; top: 10px; left: 10px; }
+        .css-noob-character .noob-torso { width: 52px; height: 50px; background-color: #3F72B5; border: 2px solid #000000; margin-top: -2px; position: relative; z-index: 2; }
+        .css-noob-character .noob-arm { width: 14px; height: 42px; background-color: #FBD116; border: 2px solid #000000; position: absolute; top: 32px; }
+        .css-noob-character .noob-arm-left { left: 8px; transform: rotate(5deg); }
+        .css-noob-character .noob-arm-right { right: 8px; transform: rotate(-5deg); }
+        .css-noob-character .noob-legs-container { display: flex; gap: 2px; margin-top: -2px; z-index: 2; }
+        .css-noob-character .noob-leg { width: 24px; height: 45px; background-color: #4E8C4E; border: 2px solid #000000; }
+
+        /* Звезда Kid Safe */
+        .kid-safe-star-box {
+            background-color: #C1C1FF;
+            clip-path: polygon(
+                50% 0%, 54% 7%, 64% 3%, 66% 11%, 76% 10%, 76% 18%, 85% 20%, 83% 28%, 91% 33%, 87% 41%, 94% 47%, 89% 54%, 
+                94% 61%, 87% 67%, 91% 75%, 83% 80%, 85% 88%, 76% 90%, 76% 98%, 66% 97%, 64% 104%, 54% 101%, 50% 108%, 
+                46% 101%, 36% 104%, 34% 97%, 24% 98%, 24% 88%, 15% 80%, 17% 75%, 9% 67%, 13% 61%, 6% 54%, 11% 47%, 
+                6% 41%, 11% 33%, 9% 28%, 15% 20%, 24% 18%, 24% 10%, 34% 11%, 36% 3%, 46% 7%
+            );
+            padding: 24px 5px; text-align: center; color: #2F2F7F; font-weight: bold; font-size: 11px;
+            line-height: 1.2; box-sizing: border-box; width: 140px; margin-top: 10px;
+        }
+        .kid-safe-star-box .badge-title { font-size: 24px; display: block; margin-bottom: 2px; letter-spacing: -1px; }
+        .parents-link-text { font-family: "Comic Sans MS", sans-serif; font-size: 13px; font-weight: bold; color: #000; text-decoration: underline; margin-top: 5px; margin-bottom: 15px; cursor: pointer; }
+    </style>
+    
+    <div class="left-sidebar">
+        <div class="login-box">
+            <h3 id="login-header">Member Login</h3>
+            <div id="login-form-fields">
+                <label>Character Name</label>
+                <input type="text" id="reg-username">
+                <label>Password</label>
+                <input type="password" id="reg-password">
+                <button id="btn-login" style="margin-top: 4px; font-size:11px; cursor: pointer;">Login</button>
+                <div style="font-size:10px; margin-top:6px;">
+                    <a href="#" style="color:#555;">Forgot password?</a> | <a href="#" id="link-register" style="color: #CC0000; font-weight: bold;">Register!</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="css-noob-character">
+            <div class="noob-head"></div>
+            <div class="noob-arm noob-arm-left"></div>
+            <div class="noob-torso"></div>
+            <div class="noob-arm noob-arm-right"></div>
+            <div class="noob-legs-container">
+                <div class="noob-leg"></div>
+                <div class="noob-leg"></div>
+            </div>
+        </div>
+
+        <div class="kid-safe-star-box">
+            <span class="badge-title">Kid Safe</span>
+            This website is<br>COPPA compliant
+        </div>
+        <div class="parents-link-text">Parents Click Here</div>
+    </div>
+    <style>
+        .center-zone { flex-grow: 1; padding-left: 5px; }
+        .welcome-title { color: #333; margin-top: 0; font-size: 26px; border-bottom: 1px solid #ccc; padding-bottom: 3px; margin-bottom: 5px; }
+        
+        .feature-item { display: flex; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
+        .feature-num-box {
+            background-color: #172D69; color: white; font-size: 24px; font-weight: bold;
+            width: 42px; height: 42px; display: flex; justify-content: center; align-items: center;
+            border-radius: 5px; box-shadow: -2px 2px 0px #000; border: 1px solid #000; flex-shrink: 0;
+            position: relative;
+        }
+        .feature-num-box::before { content: ''; position: absolute; top: -4px; width: 14px; height: 4px; background: #172D69; border: 1px solid #000; border-bottom: none; border-radius: 2px 2px 0 0; }
+        .feature-text h4 { margin: 0 0 2px 0; color: #172D69; font-size: 15px; }
+        .feature-text p { margin: 0; font-size: 12px; color: #444; line-height: 1.2; }
+        
+        .build-it-banner {
+            border: 2px solid #000; background-color: #4E8C4E;
+            background-image: radial-gradient(#3B6E3B 25%, transparent 30%); background-size: 22px 22px; 
+            color: white; padding: 20px; position: relative; margin-top: 15px; height: 240px; box-sizing: border-box; 
+        }
+        .banner-title { font-size: 56px; font-weight: bold; margin: 0; font-style: italic; text-shadow: 4px 4px 0px #000; letter-spacing: -1px; }
+        .banner-pc-text { font-size: 11px; color: #E2E6E2; font-family: Arial, sans-serif; position: absolute; left: 20px; bottom: 70px; }
+        .lego-brick-flat { 
+            position: absolute; right: 50px; top: 40px; width: 150px; height: 85px; 
+            background-color: #161616; border: 3px solid #000; box-shadow: -10px 15px 20px rgba(0,0,0,0.5);
+            display: flex; justify-content: space-around; align-items: flex-start; padding-top: 5px; box-sizing: border-box; transform: rotate(-10deg);
+        }
+        .brick-stud { width: 24px; height: 12px; background-color: #333333; border: 2px solid #000; border-radius: 50%; margin-top: -16px; }
+        .download-bar-yellow { background-color: #FBD116; color: #000; padding: 10px; font-size: 24px; font-weight: bold; text-align: center; border: 3px solid #000; position: absolute; bottom: 15px; left: 15px; right: 15px; box-sizing: border-box; }
+    </style>
+
+        <div class="center-zone">
+            <!-- HOME PAGE -->
+            <div id="main-home" class="page-section active">
+                <h2 class="welcome-title">ROBLOX Virtual Playworld</h2>
+                <p style="font-weight:bold; color:#CC0000; margin-top:-6px; font-size:14px; margin-bottom:10px;">ROBLOX is Free!</p>
+                
+                <div class="feature-item">
+                    <div class="feature-num-box">1</div>
+                    <div class="feature-text"><h4>Build your personal Place</h4><p>Create buildings, vehicles, scenery, and traps with thousands of virtual bricks.</p></div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num-box">2</div>
+                    <div class="feature-text"><h4>Meet new friends online</h4><p>Visit your friend's place, chat in 3D, and build together.</p></div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num-box">3</div>
+                    <div class="feature-text"><h4>Battle in the Brick Arenas</h4><p>Play with the slingshot, rocket, or other brick battle tools. Be careful not to get "bloxed".</p></div>
+                </div>
+                
+                <div class="build-it-banner">
+                    <div class="banner-title">Build It...</div>
+                    <div class="lego-brick-flat"><div class="brick-stud"></div><div class="brick-stud"></div><div class="brick-stud"></div></div>
+                    <div class="banner-pc-text">Works with your Windows PC!</div>
+                    <div class="download-bar-yellow">FREE - Download and Play!</div>
+                </div>
+            </div>
+
+            <!-- MY ROBLOX -->
+            <div id="my-megabloox" class="page-section">
+                <h2 class="welcome-title">My MegaBLOX Feed</h2>
+                <p>Привет, <span id="user-profile-name" style="font-weight:bold; color:#CC0000;">Строитель</span>! Добро пожаловать.</p>
+                <div style="background:#F2F2F2; border:1px solid #7F9DB9; padding:15px; margin-top:15px;">
+                    <h4>Статистика аккаунта:</h4>
+                    <p>Блок-поинты: <span style="color:green; font-weight:bold;">450 Б\$</span></p>
+                    <p>Статус: <span style="color:#3F72B5; font-weight:bold;">Мега-Строитель</span></p>
+                </div>
+            </div>
+            <!-- GAMES PAGE (СПИСОК СЕРВЕРОВ) -->
+            <div id="games" class="page-section">
+                <h2 class="welcome-title">Games - Most Popular (Now)</h2>
+                
+                <style>
+                    .games-list-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px; }
+                    .game-server-card {
+                        width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;
+                    }
+                    .game-server-card:hover { border-color: #000; background: #f9f9f9; }
+                    .game-card-thumb {
+                        width: 100%; height: 90px; background-color: #5E945E; border: 1px solid #808080;
+                        background-size: cover; background-position: center;
+                    }
+                    .game-card-title { font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline; }
+                    .game-card-info { font-family: Arial, sans-serif; font-size: 10px; color: #444; line-height: 1.3; }
+                    .online-count { color: #E20005; font-weight: bold; }
+                </style>
+
+                <div class="games-list-grid">
+                    <!-- КАРТОЧКА КРОССРОУДС -->
+                    <div class="game-server-card" onclick="openGamePage('crossroads')">
+                        <div class="game-card-thumb" style="background-image: url('https://noikcloud.xyz');"></div>
+                        <div class="game-card-title">Classic Crossroads (2007)</div>
+                        <div class="game-card-info">
+                            Updated: 2 hours ago<br>
+                            Creator: <b>BuildMaster07</b><br>
+                            Played: 4,120 times<br>
+                            <span class="online-count">96 players online</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Другие ретро-карточки для массовки -->
+                    <div class="game-server-card" onclick="alert('Эта карта сейчас на тех. обслуживании, выберите Crossroads!')">
+                        <div class="game-card-thumb" style="background-image: radial-gradient(#2d572d 20%, transparent 25%), linear-gradient(#4a8c4a, #3b6e3b); background-size: 10px 10px, 100% 100%;"></div>
+                        <div class="game-card-title">Chaos Canyon</div>
+                        <div class="game-card-info">Updated: 1 day ago<br>Creator: alexandre67<br>Played: 198 times<br><span class="online-count">43 players online</span></div>
+                    </div>
+                    <div class="game-server-card" onclick="alert('Эта карта сейчас на тех. обслуживании, выберите Crossroads!')">
+                        <div class="game-card-thumb" style="background-image: linear-gradient(135deg, #1e46a3, #0d2354);"></div>
+                        <div class="game-card-title">Cheesy's Obstacle Course</div>
+                        <div class="game-card-info">Updated: 5 hours ago<br>Creator: cheesypop<br>Played: 990 times<br><span class="online-count">12 players online</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- ОТДЕЛЬНАЯ СТРАНИЦА ИГРЫ CROSSROADS -->
+            <div id="game-details-crossroads" class="page-section">
+                <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                    <!-- Огромный скриншот игры -->
+                    <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
+                    
+                    <!-- Инфо и большая кнопка PLAY -->
+                    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Crossroads</h2>
+                            <p style="font-family: Arial, sans-serif; font-size: 11px; margin:0 0 10px 0; color:#555;">Creator: <b>BuildMaster07</b> | Опубликовано: 2007 г.</p>
+                            <p style="font-size: 13px; margin: 0; color:#333;">Легендарная арена для brickbattle сражений! Сражайся с друзьями, используй ракетницу, бомбы и рогатку. Остерегайся взрывов!</p>
+                        </div>
+                        
+                        <!-- ОГРОМНАЯ КНОПКА ИГРАТЬ -->
+                        <button onclick="launchGameSim()" style="background-color: #FBD116; color: #000; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS';">PLAY</button>
+                    </div>
+                </div>
+
+                <!-- ЖИВАЯ СИСТЕМА КОММЕНТАРИЕВ К ИГРЕ -->
+                <style>
+                    .comments-section { border-top: 2px solid #ccc; padding-top: 15px; margin-top: 20px; }
+                    .comment-block { border: 1px solid #7F9DB9; background: #f9f9f9; padding: 8px; margin-bottom: 8px; border-radius: 3px; display: flex; gap: 10px; }
+                    .comment-user { font-weight: bold; color: #172D69; font-size: 12px; width: 100px; flex-shrink: 0; text-align: center; background: #D4D0C8; padding: 4px; border: 1px solid #808080; }
+                    .comment-text-box { flex-grow: 1; font-size: 12px; display: flex; flex-direction: column; justify-content: space-between; }
+                    .comment-write-form { background: #D4D0C8; border: 1px solid #808080; padding: 10px; margin-top: 15px; }
+                    .comment-write-form textarea { width: 100%; height: 45px; resize: none; font-family: Arial, sans-serif; font-size: 12px; border: 1px solid #7F9DB9; margin-bottom: 6px; padding: 4px; box-sizing: border-box; }
+                </style>
+
+                <div class="comments-section">
+                    <h3 style="color:#172D69; margin: 0 0 10px 0;">User Comments</h3>
+                    <div id="game-comments-list"></div>
+                    
+                    <div class="comment-write-form">
+                        <h4 style="margin:0 0 5px 0; font-size:12px; color:#172D69;">Оставить комментарий к игре:</h4>
+                        <textarea id="game-comment-input" placeholder="Напиши своё мнение об этой карте..."></textarea>
+                        <button onclick="sendGameComment()" style="padding:4px 12px; font-weight:bold; cursor:pointer; font-size:11px;">Добавить отзыв</button>
+                    </div>
+                </div>
+                
+                <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
+            </div>
+            <!-- CATALOG -->
+            <div id="catalog" class="page-section">
+                <h2 class="welcome-title">MegaBLOX Catalog</h2>
+                <p>Раздел товаров находится в разработке.</p>
+            </div>
+
+            <!-- GLOBAL FORUM -->
+            <div id="forum" class="page-section">
+                <h2 class="welcome-title">MegaBLOX Global Forum</h2>
+                <div class="forum-container">
+                    <div id="forum-posts-box"></div>
+                    <div class="forum-form">
+                        <textarea id="forum-input" placeholder="Напиши сообщение..."></textarea>
+                        <button id="btn-send-post" style="padding:5px 15px; font-weight:bold; cursor:pointer;">Отправить</button>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Закрытие center-zone -->
+    </div> <!-- Закрытие main-content -->
+
+    <!-- МОДЕРНИЗИРОВАННЫЙ БЛОК COOL PLACES ВНИЗУ (ДОСТУПЕН ДЛЯ ВСЕХ, ТЕПЕРЬ С НАСТОЯЩИМИ БАННЕРАМИ) -->
+    <style>
+        .cool-places-section { background-color: #D4D0C8; border-top: 2px solid #000; padding: 10px; margin-top: 15px; width: 100%; box-sizing: border-box; }
+        .places-grid { display: flex; justify-content: space-between; margin-top: 8px; gap: 8px; }
+        .cool-place-banner-card { 
+            width: 24%; border: 1px solid #666; background: #fff; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; overflow: hidden;
+        }
+        .cool-place-banner-card:hover { border-color: #000; box-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        .cool-thumb {
+            width: 100%; height: 65px; background-size: cover; background-position: center; border-bottom: 1px solid #777;
+        }
+        .cool-meta { padding: 4px; font-family: Arial, sans-serif; font-size: 10px; color: #111; line-height: 1.2; }
+        .cool-meta-title { font-family: "Comic Sans MS", sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px; }
+        .cool-meta-stats { color: #4E8C4E; font-weight: bold; }
+    </style>
+
+    <div class="cool-places-section">
+        <div style="font-weight:bold; font-size: 13px; padding-left: 5px;">Cool Places</div>
+        <div style="font-size:11px; color:#555; margin-bottom: 5px; padding-left: 5px;">Check out some of our favorite ROBLOX places! (Доступно гостям)</div>
+        <div class="places-grid">
+            <!-- БАННЕР 1 -->
+            <div class="cool-place-banner-card" onclick="openGamePage('crossroads')">
+                <div class="cool-thumb" style="background-image: url('https://noikcloud.xyz');"></div>
+                <div class="cool-meta">
+                    <div class="cool-meta-title">Crossroads</div>
+                    By BuildMaster07<br>
+                    <span class="cool-meta-stats">👍 98% (4.1k)</span>
+                </div>
+            </div>
+            <!-- БАННЕР 2 -->
+            <div class="cool-place-banner-card" onclick="alert('Chaos Canyon сейчас на обновлении, загляни на Crossroads!')">
+                <div class="cool-thumb" style="background-image: radial-gradient(#2d572d 20%, transparent 25%), linear-gradient(#4a8c4a, #3b6e3b); background-size: 8px 8px, 100% 100%;"></div>
+                <div class="cool-meta">
+                    <div class="cool-meta-title">Chaos Canyon</div>
+                    By alexandre67<br>
+                    <span class="cool-meta-stats">👍 91% (842)</span>
+                </div>
+            </div>
+            <!-- БАННЕР 3 -->
+            <div class="cool-place-banner-card" onclick="alert('Brick Battle сейчас на обновлении, загляни на Crossroads!')">
+                <div class="cool-thumb" style="background-image: linear-gradient(135deg, #1e46a3, #0d2354);"></div>
+                <div class="cool-meta">
+                    <div class="cool-meta-title">Brick Battle</div>
+                    By cheesypop<br>
+                    <span class="cool-meta-stats">👍 95% (1.2k)</span>
+                </div>
+            </div>
+            <!-- БАННЕР 4 -->
+            <div class="cool-place-banner-card" onclick="alert('Baseplate сейчас на обновлении, загляни на Crossroads!')">
+                <div class="cool-thumb" style="background-image: linear-gradient(#808080, #555);"></div>
+                <div class="cool-meta">
+                    <div class="cool-meta-title">Baseplate</div>
+                    By Telamon<br>
+                    <span class="cool-meta-stats">👍 87% (312)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        ROBLOX, "Online Building Toy", characters, logos, names, and all related indicia are trademarks of ROBLOX Corporation, ©2007. Patents pending.<br>
+        <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a> | <a href="#">About Us</a>
+    </div>
+</div> <!-- Закрытие wrapper -->
+<!-- СИСТЕМА ЛОГИКИ САЙТА -->
+<script>
+let currentCurrentUser = localStorage.getItem('megablox_active_session') || "";
+let isLoggedIn = currentCurrentUser !== "";
+
+const btnLogin = document.getElementById('btn-login');
+const linkRegister = document.getElementById('link-register');
+const inputName = document.getElementById('reg-username');
+const inputPass = document.getElementById('reg-password');
+const loginHeader = document.getElementById('login-header');
+const formFields = document.getElementById('login-form-fields');
+const profileNameSpan = document.getElementById('user-profile-name');
+
+const forumPostsBox = document.getElementById('forum-posts-box');
+const forumInput = document.getElementById('forum-input');
+const btnSendPost = document.getElementById('btn-send-post');
+
+function showPage(pageId) {
+    document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
+    const targetElement = document.getElementById(pageId);
+    if(targetElement) targetElement.classList.add('active');
+    
+    if(pageId === 'forum') { renderForumPosts(); }
+    if(pageId === 'game-details-crossroads') { renderGameComments(); }
+}
+
+function openGamePage(gameKey) {
+    if(gameKey === 'crossroads') {
+        showPage('game-details-crossroads');
+    }
+}
+
+function launchGameSim() {
+    alert("Запуск симулятора MegaBLOX 2007...\nПодключение к серверу Crossroads...\n\n[Успешно! Вы вошли на карту. Игра симулирована!]");
+}
+
+function renderGameComments() {
+    let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments'));
+    if (!comments) {
+        comments = [
+            { user: "BuildMaster07", text: "Моя лучшая карта! Надеюсь, вам понравится brickbattle!" },
+            { user: "OldSchoolBlox", text: "Тот самый Crossroads! Ностальгия в глаз попала..." }
+        ];
+        localStorage.setItem('mb_crossroads_comments', JSON.stringify(comments));
+    }
+    document.getElementById('game-comments-list').innerHTML = comments.map(c => `
+        <div class="comment-block">
+            <div class="comment-user">👤 ${c.user}</div>
+            <div class="comment-text-box"><div>${c.text}</div></div>
+        </div>
+    `).join('');
+}
+
+function sendGameComment() {
+    if (!isLoggedIn) { alert('Только зарегистрированные нубики могут оставлять отзывы к картам!'); return; }
+    const input = document.getElementById('game-comment-input');
+    const text = input.value.trim();
+    if (!text) return;
+
+    let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || [];
+    comments.push({ user: currentCurrentUser, text: text });
+    localStorage.setItem('mb_crossroads_comments', JSON.stringify(comments));
+    input.value = '';
+    renderGameComments();
+}
+
+function renderForumPosts() {
+    let posts = JSON.parse(localStorage.getItem('megablox_forum_posts'));
+    if (!posts) {
+        posts = [
+            { author: "BuildMaster07", text: "Всем привет! Кто поможет построить замок?", date: "15.09.2007, 14:23" }
+        ];
+        localStorage.setItem('megablox_forum_posts', JSON.stringify(posts));
+    }
+    forumPostsBox.innerHTML = posts.map(post => `
+        <div class="forum-post">
+            <div class="post-author">${post.author}</div>
+            <div class="post-content"><div>${post.text}</div><div class="post-date">${post.date}</div></div>
+        </div>
+    `).join('');
+}
+
+if (isLoggedIn) { applyLoginState(currentCurrentUser); showPage('my-megabloox'); }
+
+function applyLoginState(name) {
+    loginHeader.innerText = "Welcome!";
+    formFields.innerHTML = `
+        <div style="font-weight:bold; font-size:13px; color:#3F72B5; text-align:center; margin-bottom:8px;">${name}</div>
+        <div style="text-align:center;"><a href="#" id="btn-logout" style="color:#555; text-decoration:none; font-weight:bold;">[ Logout ]</a></div>
+    `;
+    profileNameSpan.innerText = name;
+    document.getElementById('btn-logout').addEventListener('click', (e) => {
+        e.preventDefault(); localStorage.removeItem('megablox_active_session'); window.location.reload();
+    });
+}
+
+linkRegister.addEventListener('click', (e) => {
+    e.preventDefault(); const name = inputName.value.trim(); const pass = inputPass.value.trim();
+    if (!name || !pass) { alert('Введи данные!'); return; }
+    if (localStorage.getItem('mb_user_' + name)) { alert('Ник занят!'); } 
+    else { localStorage.setItem('mb_user_' + name, pass); alert(`Аккаунт ${name} создан!`); }
+});
+
+btnLogin.addEventListener('click', () => {
+    const name = inputName.value.trim(); const pass = inputPass.value.trim();
+    const savedPass = localStorage.getItem('mb_user_' + name);
+    if (savedPass && savedPass === pass) {
+        localStorage.setItem('megablox_active_session', name);
+        isLoggedIn = true; currentCurrentUser = name; applyLoginState(name); showPage('my-megabloox');
+    } else { alert('Неверные данные!'); }
+});
+
+btnSendPost.addEventListener('click', () => {
+    if (!isLoggedIn) { alert('Войди в аккаунт!'); return; }
+    const text = forumInput.value.trim(); if (!text) return;
+    let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || [];
+    posts.push({ author: currentCurrentUser, text: text, date: new Date().toLocaleString('ru-RU') });
+    localStorage.setItem('megablox_forum_posts', JSON.stringify(posts));
+    forumInput.value = ''; renderForumPosts();
+});
+
+document.getElementById('main-nav').addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && e.target.hasAttribute('data-page')) {
+        const targetPage = e.target.getAttribute('data-page');
+        if (targetPage === 'main-home' || targetPage === 'forum' || targetPage === 'games') { showPage(targetPage); } 
+        else { if (!isLoggedIn) { alert('Войди в аккаунт!'); } else { showPage(targetPage); } }
+    }
+});
+</script>
+</body>
+</html>
