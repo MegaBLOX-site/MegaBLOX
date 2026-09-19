@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>MegaBLOX Virtual Playworld</title>
-    <!-- ПОДКЛЮЧАЕМ НАСТОЯЩИЙ ТРЁХМЕРНЫЙ ДВИЖОК THREE.JS -->
-    <script src="https://cloudflare.com"></script>
     <style>
         body {
             font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
@@ -27,7 +25,6 @@
             background-color: #FFFFFF;
             border: 2px solid #000000;
             box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
-            position: relative;
         }
         /* ТРЁХМЕРНАЯ ШАПКА */
         .top-banner {
@@ -105,6 +102,7 @@
         .login-box h3 { margin: 0 0 8px 0; font-size: 12px; background-color: #D4D0C8; padding: 2px; border: 1px solid #808080; font-weight: normal; }
         .login-box label { display: block; margin-top: 4px; }
         .login-box input { width: 92%; margin-bottom: 6px; font-size: 11px; }
+        /* CSS-НУБИК */
         .css-noob-character {
             width: 100px; height: 140px; margin: 15px auto; position: relative; display: flex; flex-direction: column; align-items: center;
         }
@@ -237,22 +235,23 @@
                     <p>Статус: <span style="color:#3F72B5; font-weight:bold;">Разработчик</span></p>
                 </div>
             </div>
-
             <!-- GAMES PAGE -->
             <div id="games" class="page-section">
                 <h2 class="welcome-title">Games - Most Popular (Now)</h2>
-                <div class="games-list-grid" style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;">
+                <div class="games-list-grid" style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
+                    
                     <!-- КАРТОЧКА КРОССРОУДС -->
                     <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('crossroads')">
                         <div style="width: 100%; height: 90px; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; border: 1px solid #808080;"></div>
                         <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Crossroads (2007)</div>
                         <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: BuildMaster07<br><span style="color: #4E8C4E; font-weight: bold;">● 96 online</span></div>
                     </div>
-                    <!-- КАРТОЧКА НАСТОЯЩЕЙ 3D BASEPLATE -->
+
+                    <!-- НОВАЯ КАРТОЧКА BASEPLATE С ЗИНХРОНИЗАЦИЕЙ В 3D -->
                     <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('baseplate')">
-                        <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; font-size:16px;">3D Baseplate</div>
-                        <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Baseplate (Браузерное 3D)</div>
-                        <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: <b>Telamon</b><br><span style="color: #4E8C4E; font-weight: bold;">● Играть прямо тут!</span></div>
+                        <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:20px; text-shadow:1px 1px 2px #000;">3D</div>
+                        <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Baseplate (3D PLAY)</div>
+                        <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: <b>Telamon</b><br><span style="color: #E20005; font-weight: bold;">● 3D LIVE ENGINE</span></div>
                     </div>
                 </div>
             </div>
@@ -263,276 +262,219 @@
                     <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Crossroads</h2>
-                            <p style="font-size: 13px; margin: 0; color:#333;">Легендарная арена для brickbattle сражений! Используй ракетницу, бомбы и рогатку.</p>
+                            <p style="font-size: 13px; margin: 0; color:#333;">Легендарная arena для brickbattle сражений! Используй ракетницу, бомбы и рогатку.</p>
                         </div>
-                        <button onclick="alert('Этот симулятор на доработке, выберите карту Baseplate!')" style="background-color: #FBD116; color: #000; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000;">PLAY</button>
+                        <button onclick="launchGameSim()" style="background-color: #FBD116; color: #000; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000;">PLAY</button>
                     </div>
                 </div>
                 <div class="comments-section">
                     <h3 style="color:#172D69; margin: 0 0 10px 0;">User Comments</h3>
                     <div id="game-comments-list"></div>
-                    <div class="comment-write-form"><textarea id="game-comment-input" placeholder="Напиши сообщение..."></textarea><button onclick="sendGameComment()">Добавить отзыв</button></div>
-                </div>
-                <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
-            </div>
-
-            <!-- СТРАНИЦА НАСТОЯЩЕЙ ИГРЫ BASEPLATE -->
-            <div id="game-details-baseplate" class="page-section">
-                <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                    <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: linear-gradient(#4a8c4a, #3b6e3b); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold; flex-shrink: 0;">Baseplate 2007</div>
-                    <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">3D Baseplate Playground</h2>
-                            <p style="font-family: Arial, sans-serif; font-size: 11px; margin:0 0 10px 0; color:#555;">Creator: <b>Telamon</b> | Браузерный 3D-Клиент</p>
-                            <p style="font-size: 13px; margin: 0; color:#333;"><b>Управление:</b> Ходить на клавиши <b>W, A, S, D</b> (или стрелочки), прыгать на <b>Пробел</b>! Твой CSS-нубик оживёт в настоящем 3D-клиенте прямо на сайте!</p>
-                        </div>
-                        <!-- НАСТОЯЩИЙ ЗАПУСК СИМУЛЯТОРА -->
-                        <button onclick="startTrue3DGameClient()" style="background-color: #4E8C4E; color: #fff; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS'; text-shadow: 2px 2px 0 #000;">PLAY IN BROWSER</button>
+                    <div class="comment-write-form">
+                        <textarea id="game-comment-input" placeholder="Напиши своё мнение об этой карте..."></textarea>
+                        <button onclick="sendGameComment()">Добавить отзыв</button>
                     </div>
                 </div>
                 <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
             </div>
+            <!-- СТРАНИЦА ИГРЫ BASEPLATE С НАСТОЯЩИМ 3D ОКНОМ -->
+            <div id="game-details-baseplate" class="page-section">
+                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div style="flex-grow: 1;">
+                        <h2 style="margin:0 0 3px 0; color:#172D69; font-style: italic;">Classic Baseplate</h2>
+                        <p style="font-family: Arial, sans-serif; font-size: 11px; margin:0 0 8px 0; color:#555;">Creator: <b>Telamon</b> | Запуск прямо в браузере!</p>
+                        <p style="font-size: 12px; margin: 0; color:#333;">Управление в 3D: Ходить на <b>W, A, S, D</b> (или стрелочки), прыгать на <b>Пробел</b>. Камера летит за нубиком со спины!</p>
+                    </div>
+                    <!-- ОГРОМНАЯ КНОПКА ЗАПУСКА КЛИЕНТА В БРАУЗЕРЕ -->
+                    <button onclick="startInBrowser3DGame()" style="background-color: #4E8C4E; color: white; font-size: 24px; font-weight: bold; border: 3px solid #000; padding: 10px 30px; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family:'Comic Sans MS';">PLAY 3D LIVE</button>
+                </div>
+
+                <!-- ОКНО НАСТОЯЩЕГО ТРЁХМЕРНОГО ИГРОВОГО КЛИЕНТА -->
+                <div id="roblox-3d-canvas-container" style="width: 100%; height: 350px; background-color: #000; border: 3px solid #000; position: relative; overflow: hidden; display: none;">
+                    <div id="loading-3d-screen" style="position: absolute; width: 100%; height: 100%; background: #161616; color: #FBD116; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 20px; font-weight: bold; z-index: 99;">
+                        <div>Loading MegaBLOX 3D Client...</div>
+                        <div style="font-size:12px; color:white; margin-top:5px; font-family:Arial, sans-serif;">Connecting to Baseplate server...</div>
+                    </div>
+                </div>
+
+                <button onclick="stop3DGameEngine(); showPage('games');" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Выйти из игры и вернуться</button>
+            </div>
+
             <!-- CATALOG -->
             <div id="catalog" class="page-section">
                 <h2 class="welcome-title">MegaBLOX Catalog</h2>
                 <p>Раздел товаров находится в разработке.</p>
             </div>
-
             <!-- FORUM -->
             <div id="forum" class="page-section">
                 <h2 class="welcome-title">MegaBLOX Global Forum</h2>
-                <div class="forum-container"><div id="forum-posts-box"></div><div class="forum-form"><textarea id="forum-input" placeholder="Напиши..."></textarea><button id="btn-send-post">Отправить пост</button></div></div>
-            </div>
-
-            <!-- НАСТОЯЩИЙ ТРЁХМЕРНЫЙ ЭКРАН ИГРЫ (ОТКРЫВАЕТСЯ ПРИ КЛИКЕ НА PLAY) -->
-            <div id="game-3d-screen" class="page-section" style="position: relative; width: 100%; height: 420px; border: 3px solid #000; background-color: #000; overflow: hidden;">
-                <div style="position: absolute; left: 10px; top: 10px; z-index: 100; color: #fff; font-size: 11px; background: rgba(0,0,0,0.6); padding: 5px; border-radius: 3px; font-family: Arial, sans-serif;">
-                    <b>MegaBLOX 3D Client (v0.4)</b> | Account: <span id="3d-display-nickname" style="color: #FBD116;">Гость</span><br>
-                    Управление: <b>W,A,S,D</b> - Бег, <b>Пробел</b> - Прыжок
+                <div class="forum-container" style="border: 2px solid #3F72B5; background-color: #E2E6E2; padding: 12px; margin-top: 10px; border-radius: 4px;">
+                    <div id="forum-posts-box"></div>
+                    <div class="forum-form" style="margin-top: 15px; background-color: #D4D0C8; border: 2px solid #808080; padding: 10px; border-radius: 3px;">
+                        <textarea id="forum-input" placeholder="Поделись своими мыслями, братка..." style="width: 100%; height: 50px; font-family: Arial, sans-serif; margin-bottom: 6px; resize: none; border: 1px solid #7F9DB9; padding: 4px; box-sizing: border-box;"></textarea>
+                        <button id="btn-send-post" style="background-color: #3F72B5; color: white; border: 1px solid #000; padding: 4px 15px; font-weight: bold; cursor: pointer; font-size: 12px;">Отправить пост</button>
+                    </div>
                 </div>
-                <!-- Кнопка аварийного выхода из 3D-игры назад на сайт -->
-                <button onclick="stop3DGameClientAndGoBack()" style="position: absolute; right: 10px; top: 10px; z-index: 100; background: #E20005; color: white; border: 2px solid #000; font-weight: bold; cursor: pointer; padding: 4px 10px;">[ ESCAPE GAME ]</button>
-                
-                <!-- Сюда библиотека Three.js вставит живой 3D-мир -->
-                <div id="canvas-3d-container" style="width: 100%; height: 100%;"></div>
             </div>
+        </div> <!-- Закрытие center-zone -->
+    </div> <!-- Закрытие main-content -->
             <!-- СТРАНИЦА РОДИТЕЛЬСКОГО КОНТРОЛЯ -->
             <div id="parents-section" class="page-section">
                 <h2 class="welcome-title" style="color: #172D69;">Parents Security Control</h2>
-                <style>
-                    .parent-box-panel { border: 2px solid #808080; background-color: #F2F2F2; padding: 15px; margin-top: 15px; border-radius: 4px; }
-                    .parent-input-field { width: 140px; padding: 4px; font-size: 14px; margin-left: 10px; border: 1px solid #7F9DB9; }
-                    .parent-btn-next { background-color: #FBD116; border: 2px solid #000; padding: 5px 15px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-                    .parent-btn-ask { background-color: #E2E6E2; border: 1px solid #000; padding: 5px 20px; font-weight: bold; cursor: pointer; margin-right: 5px; }
-                    .parent-question-item { background: #FFFFFF; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 3px; }
-                    .parent-question-text { font-size: 13px; font-weight: bold; color: #333; }
-                    .parent-btn-group { display: flex; gap: 5px; }
-                    .parent-choice-btn { width: 60px; padding: 4px 0; font-weight: bold; border: 1px solid #000; cursor: pointer; text-align: center; font-size: 12px; background-color: #E2E6E2; }
-                    .parent-choice-btn.selected-yes { background-color: #4E8C4E !important; color: white !important; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5); }
-                    .parent-choice-btn.selected-no { background-color: #E20005 !important; color: white !important; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5); }
-                </style>
+                
                 <div id="parent-step-unlock" class="parent-box-panel" style="display: none;">
-                    <h3>Панель заблокирована</h3><label>Введите родительский пароль:</label>
-                    <input type="password" id="parent-unlock-password-input" class="parent-input-field"><br><br><button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти</button>
+                    <h3 style="margin:0 0 12px 0; color:#172D69;">Панель заблокирована</h3>
+                    <label style="font-size:13px;"><b>Введите родительский пароль</b> для изменения настроек:</label>
+                    <input type="password" id="parent-unlock-password-input" class="parent-input-field">
+                    <br><br>
+                    <button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти в настройки</button>
                 </div>
+
                 <div id="parent-step-age" class="parent-box-panel" style="display: none;">
-                    <h3>Регистрация Родительского Контроля</h3><p id="parent-warning-login" style="color:red; font-weight:bold;">⚠️ Войдите в аккаунт персонажа!</p>
-                    <label>Сколько лет вашему ребёнку? (0 - 14):</label><input type="number" id="parent-child-age-input" class="parent-input-field"><br><br><button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить</button>
+                    <h3 style="margin:0 0 12px 0; color:#172D69;">Регистрация Родительского Контроля</h3>
+                    <p style="font-size:12px; color:#c00; font-weight:bold; margin-top:-5px;" id="parent-warning-login">⚠️ Войдите в аккаунт персонажа, чтобы настроить контроль!</p>
+                    <label style="font-size:13px;"><b>Сколько лет вашему ребёнку?</b> (Лимит: 0 - 14):</label>
+                    <input type="number" id="parent-child-age-input" class="parent-input-field" min="0" max="30">
+                    <br><br>
+                    <button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить &gt;</button>
                 </div>
                 <div id="parent-step-settings" class="parent-box-panel" style="display: none;">
-                    <h3>Настройки безопасности</h3><p>Персонаж: <b id="display-parent-user"></b> (Возраст: <span id="display-parent-age"></span> лет)</p>
+                    <h3 style="margin:0 0 5px 0; color:#4E8C4E;">Настройки безопасности</h3>
+                    <p style="font-size:12px; color:#555; margin:0 0 15px 0;">Настройки применяются для персонажа: <b id="display-parent-user" style="color:#E20005;"></b> (Возраст: <span id="display-parent-age" style="font-weight:bold;"></span> лет)</p>
                     <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку писать в чат?</div><div class="parent-btn-group"><button id="p-chat-yes" class="parent-choice-btn" onclick="saveParentPermission('chat', 'yes')">Да</button><button id="p-chat-no" class="parent-choice-btn" onclick="saveParentPermission('chat', 'no')">Нет</button></div></div>
                     <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку покупать вещи?</div><div class="parent-btn-group"><button id="p-catalog-yes" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'yes')">Да</button><button id="p-catalog-no" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'no')">Нет</button></div></div>
                     <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку писать в форумы?</div><div class="parent-btn-group"><button id="p-forum-yes" class="parent-choice-btn" onclick="saveParentPermission('forum', 'yes')">Да</button><button id="p-forum-no" class="parent-choice-btn" onclick="saveParentPermission('forum', 'no')">Нет</button></div></div>
                     <div class="parent-question-item"><div class="parent-question-text">Можно ли вашему ребёнку добавлять в друзья?</div><div class="parent-btn-group"><button id="p-friends-yes" class="parent-choice-btn" onclick="saveParentPermission('friends', 'yes')">Да</button><button id="p-friends-no" class="parent-choice-btn" onclick="saveParentPermission('friends', 'no')">Нет</button></div></div>
                     <button onclick="goToPasswordQuestionStep()" class="parent-btn-next" style="background:#4EA3FF; color:white;">Сохранить эти настройки &gt;</button>
                 </div>
+
                 <div id="parent-step-ask-password" class="parent-box-panel" style="display: none;">
-                    <h3>Защита панели управления</h3><label><b>Не хотите ли вы сделать пароль?</b></label><br><br>
-                    <button onclick="chooseToCreatePassword(true)" class="parent-btn-ask" style="background-color:#4E8C4E; color:white;">Да</button><button onclick="chooseToCreatePassword(false)" class="parent-btn-ask" style="background-color:#E20005; color:white;">Нет</button>
+                    <h3 style="margin:0 0 10px 0; color:#172D69;">Защита панели управления</h3>
+                    <label style="font-size:14px; display:block; margin-bottom:15px;"><b>Не хотите ли вы сделать пароль?</b></label>
+                    <button onclick="chooseToCreatePassword(true)" class="parent-btn-ask" style="background-color:#4E8C4E; color:white;">Да</button>
+                    <button onclick="chooseToCreatePassword(false)" class="parent-btn-ask" style="background-color:#E20005; color:white;">Нет</button>
                 </div>
+
                 <div id="parent-step-type-password" class="parent-box-panel" style="display: none;">
-                    <h3>Создание родительского пароля</h3><p>Введите секретный пароль (<b>не менее 5 символов</b>):</p>
-                    <input type="password" id="parent-new-secure-pass-input" class="parent-input-field"><br><br><button onclick="submitNewSecureParentPassword()" class="parent-btn-next" style="background:#4E8C4E; color:white;">Подтвердить</button>
+                    <h3 style="margin:0 0 5px 0; color:#172D69;">Создание родительского пароля</h3>
+                    <p style="font-size:12px; color:#555; margin:0 0 12px 0;">Введите секретный пароль (<b>не менее 5 символов</b>):</p>
+                    <input type="password" id="parent-new-secure-pass-input" class="parent-input-field"><br><br>
+                    <button onclick="submitNewSecureParentPassword()" class="parent-btn-next" style="background:#4E8C4E; color:white;">Подтвердить и закрыть настройки</button>
                 </div>
             </div> <!-- Конец parents-section -->
-        </div> <!-- Закрытие center-zone -->
-    </div> <!-- Закрытие main-content -->
+        </div>
 
     <div class="cool-places-section" style="background-color: #D4D0C8; border-top: 2px solid #000; padding: 10px; margin-top: 15px; width: 100%; box-sizing: border-box;">
         <div style="font-weight:bold; font-size: 13px; padding-left: 5px;">Cool Places</div>
         <div class="places-grid" style="display: flex; justify-content: space-between; margin-top: 8px; gap: 8px;">
             <div style="width: 24%; height: 110px; background-color: #5E945E; border: 1px solid #000; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 5px; font-size: 11px; font-weight: bold; box-sizing: border-box; background-image: linear-gradient(transparent 60%, rgba(0,0,0,0.7)), url('https://noikcloud.xyz'); background-size: cover; background-position: center;" onclick="openGamePage('crossroads')">
-                <div style="font-family: 'Comic Sans MS', sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px;">Crossroads</div>By BuildMaster07<br>👍 98% (4.1k)
+                <div style="font-family: 'Comic Sans MS', sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px;">Crossroads</div>By BuildMaster07<br><span style="color: #4E8C4E; font-weight: bold;">👍 98% (4.1k)</span>
             </div>
         </div>
     </div>
-    <div class="footer" style="font-family: Arial, sans-serif; font-size: 10px; color: #555; text-align: center; padding: 12px; border-top: 1px solid #ccc; background-color: #F2F2F2; width: 100%; box-sizing: border-box;">MegaBLOX ©2007. <a href="#">Privacy Policy</a></div>
+    <div class="footer" style="font-family: Arial, sans-serif; font-size: 10px; color: #555; text-align: center; padding: 12px; border-top: 1px solid #ccc; background-color: #F2F2F2; width: 100%; box-sizing: border-box;">
+        MegaBLOX ©2007. <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+    </div>
 </div>
+<!-- ПОДКЛЮЧАЕМ ДВИЖОК ТРЁХМЕРНОЙ ГРАФИКИ THREE.JS ДЛЯ ЗАПУСКА КЛИЕНТА В БРАУЗЕРЕ -->
+<script src="https://cloudflare.com"></script>
+
 <script>
-// ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ 3D ИГРЫ
-let scene3D, camera3D, renderer3D, noobMesh3D;
-let is3DGameRunning = false;
-let moveKeys = { w: false, a: false, s: false, d: false, space: false };
-let noobVelocityY = 0;
-let isNoobOnGround = true;
+let currentCurrentUser = localStorage.getItem('megablox_active_session') || "";
+let isLoggedIn = currentCurrentUser !== "";
+let isParentSectionUnlocked = false; 
 
-// ЗАПУСК НАСТОЯЩЕГО ТРЁХМЕРНОГО МИРА
-function startTrue3DGameClient() {
-    // Показываем блок с игрой, скрывая остальные секции
+const btnLogin = document.getElementById('btn-login');
+const linkRegister = document.getElementById('link-register');
+const inputName = document.getElementById('reg-username');
+const inputPass = document.getElementById('reg-password');
+const loginHeader = document.getElementById('login-header');
+const formFields = document.getElementById('login-form-fields');
+const profileNameSpan = document.getElementById('user-profile-name');
+const forumPostsBox = document.getElementById('forum-posts-box');
+const forumInput = document.getElementById('forum-input');
+const btnSendPost = document.getElementById('btn-send-post');
+
+function showPage(pageId) {
     document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
-    document.getElementById('game-3d-screen').classList.add('active');
+    const targetElement = document.getElementById(pageId);
+    if(targetElement) targetElement.classList.add('active');
     
-    // Пишем ник игрока на экране лаунчера
-    document.getElementById('3d-display-nickname').innerText = currentCurrentUser || "Guest_Noob";
+    if(pageId === 'forum') { renderForumPosts(); }
+    if(pageId === 'game-details-crossroads') { renderGameComments(); }
+    if(pageId === 'parents-section') { setupParentPageUI(); }
+}
+
+function openGamePage(gameKey) {
+    if(gameKey === 'crossroads') showPage('game-details-crossroads');
+    if(gameKey === 'baseplate') showPage('game-details-baseplate');
+}
+function launchGameSim() { alert("Запуск Crossroads 2007...\n[Успешно! Игра симулирована!]"); }
+
+// РОДИТЕЛЬСКАЯ ЛОГИКА СЕМЕЙНОГО ДОСТУПА
+function setupParentPageUI() {
+    document.getElementById('parent-step-unlock').style.display = 'none';
+    document.getElementById('parent-step-age').style.display = 'none';
+    document.getElementById('parent-step-settings').style.display = 'none';
+    document.getElementById('parent-step-ask-password').style.display = 'none';
+    document.getElementById('parent-step-type-password').style.display = 'none';
+
+    if (!isLoggedIn) {
+        document.getElementById('parent-warning-login').style.display = 'block';
+        document.getElementById('parent-step-age').style.display = 'block';
+        return;
+    }
+    document.getElementById('parent-warning-login').style.display = 'none';
     
-    // Проверяем, был ли холст уже создан ранее, чтобы не плодить окна
-    const container = document.getElementById('canvas-3d-container');
-    container.innerHTML = ''; 
-    is3DGameRunning = true;
+    const savedPassword = localStorage.getItem(`parent_pass_${currentCurrentUser}`);
+    const savedAge = localStorage.getItem(`parent_age_${currentCurrentUser}`);
 
-    // 1. СОЗДАЁМ СЦЕНУ (ОКРУЖЕНИЕ)
-    scene3D = new THREE.Scene();
-    scene3D.background = new THREE.Color(0x6EB5FF); // Синее небо Роблокса
-
-    // 2. СОЗДАЁМ КАМЕРУ
-    camera3D = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
-
-    // 3. СОЗДАЁМ РЕНДЕРИНГ GRAPHICS
-    renderer3D = new THREE.WebGLRenderer({ antialias: true });
-    renderer3D.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer3D.domElement);
-
-    // 4. ДОБАВЛЯЕМ СВЕТ (СОЛНЦЕ)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-    scene3D.add(ambientLight);
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    dirLight.position.set(20, 40, 20);
-    scene3D.add(dirLight);
-
-    // ПОДКЛЮЧАЕМ СБОРКУ ЗЕМЛИ И ЧЕЛОВЕЧКА
-    build3DBaseplateWorld();
-}
-function build3DBaseplateWorld() {
-    // 1. СТРОИМ ОГРОМНУЮ ЗЕЛЕНУЮ ПЛИТУ (BASEPLATE)
-    const baseGeo = new THREE.BoxGeometry(160, 2, 160);
-    const baseMat = new THREE.MeshStandardMaterial({ color: 0x4E8C4E, roughness: 0.8 });
-    const basePlateMesh = new THREE.Mesh(baseGeo, baseMat);
-    basePlateMesh.position.y = -1; // Выравниваем по уровню земли
-    scene3D.add(basePlateMesh);
-
-    // 2. СОБИРАЕМ ОБЪЁМНОГО CSS-НУБИКА ИЗ ОТДЕЛЬНЫХ БЛОКОВ
-    const noobGroup = new THREE.Group();
-
-    // Голова (Жёлтый кубик)
-    const headGeo = new THREE.BoxGeometry(1.6, 1.6, 1.6);
-    const headMat = new THREE.MeshStandardMaterial({ color: 0xFBD116 });
-    const headMesh = new THREE.Mesh(headGeo, headMat);
-    headMesh.position.y = 4.2;
-    noobGroup.add(headMesh);
-
-    // Торс (Синий кубик)
-    const torsoGeo = new THREE.BoxGeometry(2.4, 2.4, 1.2);
-    const torsoMat = new THREE.MeshStandardMaterial({ color: 0x3F72B5 });
-    const torsoMesh = new THREE.Mesh(torsoGeo, torsoMat);
-    torsoMesh.position.y = 2.2;
-    noobGroup.add(torsoMesh);
-
-    // Левая рука (Жёлтая)
-    const armLGeo = new THREE.BoxGeometry(0.7, 2.2, 0.7);
-    const armLMesh = new THREE.Mesh(armLGeo, headMat);
-    armLMesh.position.set(-1.6, 2.2, 0);
-    noobGroup.add(armLMesh);
-
-    // Правая рука (Жёлтая)
-    const armRMesh = armLMesh.clone();
-    armRMesh.position.x = 1.6;
-    noobGroup.add(armRMesh);
-
-    // Левая нога (Зелёная)
-    const legLGeo = new THREE.BoxGeometry(1.0, 2.0, 1.0);
-    const legMat = new THREE.MeshStandardMaterial({ color: 0x4E8C4E });
-    const legLMesh = new THREE.Mesh(legLGeo, legMat);
-    legLMesh.position.set(-0.6, 0.0, 0);
-    noobGroup.add(legLMesh);
-
-    // Правая нога (Зелёная)
-    const legRMesh = legLMesh.clone();
-    legRMesh.position.x = 0.6;
-    noobGroup.add(legRMesh);
-
-    // Спавним нубика в центре карты
-    noobMesh3D = noobGroup;
-    scene3D.add(noobMesh3D);
-
-    // Ставим камеру за спину игрока
-    camera3D.position.set(0, 12, 18);
-    camera3D.lookAt(0, 2, 0);
-
-    // Запускаем игровой цикл анимации и физики
-    run3DGameLoop();
-}
-function run3DGameLoop() {
-    if (!is3DGameRunning) return;
-    requestAnimationFrame(run3DGameLoop);
-
-    // РАССЧЁТ СКОРОСТИ БЕГА
-    const speed = 0.25;
-    if (moveKeys.w) noobMesh3D.position.z -= speed;
-    if (moveKeys.s) noobMesh3D.position.z += speed;
-    if (moveKeys.a) noobMesh3D.position.x -= speed;
-    if (moveKeys.d) noobMesh3D.position.x += speed;
-
-    // РАССЧЁТ ФИЗИКИ ГРАВИТАЦИИ И ПРЫЖКОВ
-    if (moveKeys.space && isNoobOnGround) {
-        noobVelocityY = 0.35; // Сила толчка вверх
-        isNoobOnGround = false;
+    if (savedPassword && savedPassword !== "none" && !isParentSectionUnlocked) {
+        document.getElementById('parent-step-unlock').style.display = 'block';
+    } else if (savedAge) {
+        document.getElementById('parent-step-settings').style.display = 'block';
+        document.getElementById('display-parent-age').innerText = savedAge;
+        document.getElementById('display-parent-user').innerText = currentCurrentUser;
+        loadParentSettingsUI();
+    } else {
+        document.getElementById('parent-step-age').style.display = 'block';
     }
-
-    if (!isNoobOnGround) {
-        noobVelocityY -= 0.02; // Тяга гравитации вниз
-        noobMesh3D.position.y += noobVelocityY;
-
-        // Приземление на уровень Baseplate плиты (Y = 1.0)
-        if (noobMesh3D.position.y <= 1.0) {
-            noobMesh3D.position.y = 1.0;
-            noobVelocityY = 0;
-            isNoobOnGround = true;
-        }
-    }
-
-    // КАМЕРА ПЛАВНО ПРЕСЛЕДУЕТ НУБИКА СО СПИНЫ
-    camera3D.position.x = noobMesh3D.position.x;
-    camera3D.position.z = noobMesh3D.position.z + 18;
-    camera3D.position.y = noobMesh3D.position.y + 12;
-    camera3D.lookAt(noobMesh3D.position.x, noobMesh3D.position.y + 2, noobMesh3D.position.z);
-
-    // ОТРИСОВКА КАДРА ВИДЕОКАРТОЙ
-    renderer3D.render(scene3D, camera3D);
 }
-
-// Отслеживание клавиатуры W,A,S,D и Пробела
-window.addEventListener('keydown', (e) => {
-    if (!is3DGameRunning) return;
-    if (e.key.toLowerCase() === 'w' || e.key === 'ArrowUp') moveKeys.w = true;
-    if (e.key.toLowerCase() === 's' || e.key === 'ArrowDown') moveKeys.s = true;
-    if (e.key.toLowerCase() === 'a' || e.key === 'ArrowLeft') moveKeys.a = true;
-    if (e.key.toLowerCase() === 'd' || e.key === 'ArrowRight') moveKeys.d = true;
-    if (e.key === ' ' || e.key === 'Spacebar') { moveKeys.space = true; e.preventDefault(); }
-});
-
-window.addEventListener('keyup', (e) => {
-    if (e.key.toLowerCase() === 'w' || e.key === 'ArrowUp') moveKeys.w = false;
-    if (e.key.toLowerCase() === 's' || e.key === 'ArrowDown') moveKeys.s = false;
-    if (e.key.toLowerCase() === 'a' || e.key === 'ArrowLeft') moveKeys.a = false;
-    if (e.key.toLowerCase() === 'd' || e.key === 'ArrowRight') moveKeys.d = false;
-    if (e.key === ' ' || e.key === 'Spacebar') moveKeys.space = false;
-});
-
-function stop3DGameClientAndGoBack() {
-    is3DGameRunning = false;
-    showPage('games');
+function checkParentAgeLimit() {
+    if (!isLoggedIn) { alert('Войдите в аккаунт игрока!'); return; }
+    const age = parseInt(document.getElementById('parent-child-age-input').value);
+    if (isNaN(age) || age < 0) { alert('Пожалуйста, введите корректный возраст!'); return; }
+    if (age >= 15) { alert('Ошибка! Возраст превышает лимит родительского контроля (15 лет и выше)!'); } 
+    else { localStorage.setItem(`parent_age_${currentCurrentUser}`, age); setupParentPageUI(); }
 }
+function goToPasswordQuestionStep() {
+    document.getElementById('parent-step-settings').style.display = 'none';
+    if (localStorage.getItem(`parent_pass_${currentCurrentUser}`)) { window.location.reload(); return; }
+    document.getElementById('parent-step-ask-password').style.display = 'block';
+}
+function chooseToCreatePassword(isYes) {
+    document.getElementById('parent-step-ask-password').style.display = 'none';
+    if (isYes) { document.getElementById('parent-step-type-password').style.display = 'block'; } 
+    else { localStorage.setItem(`parent_pass_${currentCurrentUser}`, "none"); alert('Сохранено без пароля! 😎🧱'); window.location.reload(); }
+}
+function submitNewSecureParentPassword() {
+    const securePass = document.getElementById('parent-new-secure-pass-input').value.trim();
+    if (securePass.length < 5) { alert('Ошибка! Пароль должен быть не менее 5 символов!'); return; }
+    localStorage.setItem(`parent_pass_${currentCurrentUser}`, securePass); isParentSectionUnlocked = true;
+    alert('Замок активирован!'); window.location.reload();
+}
+function verifyParentPasswordUnlock() {
+    if (document.getElementById('parent-unlock-password-input').value.trim() === localStorage.getItem(`parent_pass_${currentCurrentUser}`)) {
+        isParentSectionUnlocked = true; document.getElementById('parent-unlock-password-input').value = ''; setupParentPageUI();
+    } else { alert('Неверный родительский пароль!'); }
+}
+function saveParentPermission(key, value) { if (isLoggedIn) { localStorage.setItem(`parent_perm_${currentCurrentUser}_${key}`, value); highlightParentButtons(key, value); } }
+function highlightParentButtons(key, value) {
+    const btnYes = document.getElementById(`p-${key}-yes`); const btnNo = document.getElementById(`p-${key}-no`); if (!btnYes || !btnNo) return;
+    btnYes.classList.remove('selected-yes'); btnNo.classList.remove('selected-no');
+    if (value === 'yes') btnYes.classList.add('selected-yes'); else if (value === 'no') btnNo.classList.add('selected-no');
+}
+function loadParentSettingsUI() { ['chat', 'catalog', 'forum', 'friends'].forEach(feat => highlightParentButtons(feat, localStorage.getItem(`parent_perm_${currentCurrentUser}_feat`) || 'yes')); }
 // КОММЕНТАРИИ К ИГРЕ С ЛОКАЛЬНОЙ ПАМЯТЬЮ И БЛОКОМ РОДИТЕЛЕЙ
 function renderGameComments() {
     let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || [{ user: "BuildMaster07", text: "Моя лучшая карта! Надеюсь, вам понравится brickbattle!" }];
