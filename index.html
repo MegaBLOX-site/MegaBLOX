@@ -27,7 +27,7 @@
             box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* ТРЁХМЕРНАЯ ШАПКА */
+        /* ТВОЯ ПАНОРАМА */
         .top-banner {
             height: 115px;
             position: relative;
@@ -131,7 +131,6 @@
         }
         .kid-safe-star-box .badge-title { font-size: 24px; display: block; margin-bottom: 2px; letter-spacing: -1px; }
         
-        /* КНОПКА ДЛЯ РОДИТЕЛЕЙ */
         .parents-link-button {
             display: block; width: 140px; background-color: #FBD116; color: #000000; border: 2px solid #000000;
             padding: 6px 2px; font-size: 12px; font-weight: bold; text-decoration: none; text-align: center;
@@ -169,7 +168,6 @@
             <span class="badge-title">Kid Safe</span>
             This website is<br>COPPA compliant
         </div>
-        <!-- Кнопка теперь переключает вкладку -->
         <div onclick="showPage('parents-section')" class="parents-link-button">Parents Click Here</div>
     </div>
     <style>
@@ -272,6 +270,7 @@
                     <div id="game-comments-list"></div>
                     <div class="comment-write-form">
                         <textarea id="game-comment-input" placeholder="Напиши своё мнение об этой карте..."></textarea>
+                        <!-- Защищенная родительским контролем функция -->
                         <button onclick="sendGameComment()">Добавить отзыв</button>
                     </div>
                 </div>
@@ -284,13 +283,14 @@
                 <p>Раздел товаров находится в разработке.</p>
             </div>
 
-            <!-- FORUM -->
+            <!-- FORUM (С ЗАЩИТОЙ ПОСТОВ) -->
             <div id="forum" class="page-section">
                 <h2 class="welcome-title">MegaBLOX Global Forum</h2>
                 <div class="forum-container">
                     <div id="forum-posts-box"></div>
                     <div class="forum-form">
                         <textarea id="forum-input" placeholder="Поделись своими мыслями, братка..."></textarea>
+                        <!-- Защищенная родительским контролем функция -->
                         <button id="btn-send-post">Отправить пост</button>
                     </div>
                 </div>
@@ -304,31 +304,28 @@
                     .parent-input-field { width: 100px; padding: 4px; font-size: 14px; margin-left: 10px; border: 1px solid #7F9DB9; }
                     .parent-btn-next { background-color: #FBD116; border: 2px solid #000; padding: 5px 15px; font-weight: bold; cursor: pointer; margin-top: 10px; }
                     
-                    /* Стили для опросника */
                     .parent-question-item { background: #FFFFFF; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 3px; }
                     .parent-question-text { font-size: 13px; font-weight: bold; color: #333; }
                     .parent-btn-group { display: flex; gap: 5px; }
                     
-                    /* Кнопки ДА / НЕТ с эффектом отсвечивания при клике */
                     .parent-choice-btn { width: 60px; padding: 4px 0; font-weight: bold; border: 1px solid #000; cursor: pointer; text-align: center; font-size: 12px; background-color: #E2E6E2; }
                     .parent-choice-btn.selected-yes { background-color: #4E8C4E !important; color: white !important; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5); }
                     .parent-choice-btn.selected-no { background-color: #E20005 !important; color: white !important; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5); }
                 </style>
 
-                <!-- ШАГ 1: Ввод возраста ребёнка -->
+                <!-- ШАГ 1: Зачтено как регистрация возраста ребенка -->
                 <div id="parent-step-age" class="parent-box-panel">
-                    <h3 style="margin:0 0 12px 0; color:#172D69;">Проверка доступа для Родителей</h3>
+                    <h3 style="margin:0 0 12px 0; color:#172D69;">Регистрация Родительского Контроля</h3>
                     <label style="font-size:13px;"><b>Сколько лет вашему ребёнку?</b> (Лимит: 0 - 14):</label>
                     <input type="number" id="parent-child-age-input" class="parent-input-field" min="0" max="30">
                     <br><br>
                     <button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить &gt;</button>
                 </div>
-                <!-- ШАГ 2: Список разрешений (По умолчанию скрыт) -->
+                <!-- ШАГ 2: Список разрешений -->
                 <div id="parent-step-settings" class="parent-box-panel" style="display: none;">
                     <h3 style="margin:0 0 5px 0; color:#4E8C4E;">Настройки безопасности</h3>
                     <p style="font-size:12px; color:#555; margin:0 0 15px 0;">Укажите, какие функции сайта будут доступны вашему ребёнку (Возраст: <span id="display-parent-age" style="font-weight:bold;"></span> лет):</p>
                     
-                    <!-- ВОПРОС 1 -->
                     <div class="parent-question-item">
                         <div class="parent-question-text">Можно ли вашему ребёнку писать в чат?</div>
                         <div class="parent-btn-group">
@@ -337,7 +334,6 @@
                         </div>
                     </div>
 
-                    <!-- ВОПРОС 2 -->
                     <div class="parent-question-item">
                         <div class="parent-question-text">Можно ли вашему ребёнку покупать вещи?</div>
                         <div class="parent-btn-group">
@@ -346,7 +342,7 @@
                         </div>
                     </div>
 
-                    <!-- ВОПРОС 3 -->
+                    <!-- ЭТОТ ВОПРОС БЛОКИРУЕТ ФОРУМЫ И ОТЗЫВЫ -->
                     <div class="parent-question-item">
                         <div class="parent-question-text">Можно ли вашему ребёнку писать в форумы?</div>
                         <div class="parent-btn-group">
@@ -355,7 +351,6 @@
                         </div>
                     </div>
 
-                    <!-- ВОПРОС 4 -->
                     <div class="parent-question-item">
                         <div class="parent-question-text">Можно ли вашему ребёнку добавлять в друзья?</div>
                         <div class="parent-btn-group">
@@ -410,21 +405,15 @@ function showPage(pageId) {
 function openGamePage(gameKey) { if(gameKey === 'crossroads') showPage('game-details-crossroads'); }
 function launchGameSim() { alert("Запуск Crossroads 2007...\n[Успешно! Игра симулирована!]"); }
 
-// СИСТЕМА РОДИТЕЛЬСКОГО КОНТРОЛЯ (ЛОГИКА)
+// СИСТЕМА РОДИТЕЛЬСКОГО КОНТРОЛЯ
 function checkParentAgeLimit() {
     const ageInput = document.getElementById('parent-child-age-input').value;
     const age = parseInt(ageInput);
+    if (isNaN(age) || age < 0) { alert('Пожалуйста, введите корректный возраст!'); return; }
 
-    if (isNaN(age) || age < 0) {
-        alert('Пожалуйста, введите корректный возраст ребёнка!');
-        return;
-    }
-
-    // Проверяем лимит (0 - 14 лет)
     if (age >= 15) {
         alert('Ошибка! Доступ запрещен. Возраст превышает лимит родительского контроля (15 лет и выше)!');
     } else {
-        // Успешный проход к опросникам
         document.getElementById('parent-step-age').style.display = 'none';
         document.getElementById('parent-step-settings').style.display = 'block';
         document.getElementById('display-parent-age').innerText = age;
@@ -432,41 +421,30 @@ function checkParentAgeLimit() {
     }
 }
 
-// Сохранение и отсвечивание кнопок
 function saveParentPermission(key, value) {
     localStorage.setItem('parent_perm_' + key, value);
     highlightParentButtons(key, value);
 }
 
-// Функция подсветки нажатой кнопки
 function highlightParentButtons(key, value) {
     const btnYes = document.getElementById(`p-${key}-yes`);
     const btnNo = document.getElementById(`p-${key}-no`);
-    
     if (!btnYes || !btnNo) return;
-
-    // Сбрасываем старые стили
     btnYes.classList.remove('selected-yes');
     btnNo.classList.remove('selected-no');
-
-    // Заставляем нужную кнопку отсвечивать
-    if (value === 'yes') {
-        btnYes.classList.add('selected-yes');
-    } else if (value === 'no') {
-        btnNo.classList.add('selected-no');
-    }
+    if (value === 'yes') { btnYes.classList.add('selected-yes'); } 
+    else if (value === 'no') { btnNo.classList.add('selected-no'); }
 }
 
-// Загрузка сохранённых кнопок из памяти компьютера
 function loadParentSettingsUI() {
     const features = ['chat', 'catalog', 'forum', 'friends'];
     features.forEach(feat => {
-        const savedValue = localStorage.getItem('parent_perm_' + feat) || 'yes'; // По умолчанию 'yes'
+        const savedValue = localStorage.getItem('parent_perm_' + feat) || 'yes';
         highlightParentButtons(feat, savedValue);
     });
 }
 
-// КОММЕНТАРИИ К ИГРЕ
+// КОММЕНТАРИИ К ИГРЕ (С ПРОВЕРКОЙ ОГРАНИЧЕНИЯ)
 function renderGameComments() {
     let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || [];
     document.getElementById('game-comments-list').innerHTML = comments.map(c => `
@@ -476,6 +454,14 @@ function renderGameComments() {
 
 function sendGameComment() {
     if (!isLoggedIn) { alert('Войди в аккаунт!'); return; }
+    
+    // ПРОВЕРКА РОДИТЕЛЬСКОГО ЛИМИТА НА ФОРУМЫ И ОТЗЫВЫ
+    const forumPermission = localStorage.getItem('parent_perm_forum') || 'yes';
+    if (forumPermission === 'no') {
+        alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку');
+        return;
+    }
+
     const input = document.getElementById('game-comment-input');
     const text = input.value.trim(); if (!text) return;
     let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || [];
@@ -484,7 +470,7 @@ function sendGameComment() {
     input.value = ''; renderGameComments();
 }
 
-// ПОСТЫ НА ФОРУМЕ
+// ПОСТЫ НА ФОРУМЕ (С ПРОВЕРКОЙ ОГРАНИЧЕНИЯ)
 function renderForumPosts() {
     let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || [];
     document.getElementById('forum-posts-box').innerHTML = posts.map(post => `
@@ -497,6 +483,15 @@ function renderForumPosts() {
 
 document.getElementById('btn-send-post').addEventListener('click', () => {
     if (!isLoggedIn) { alert('Войди в аккаунт!'); return; }
+    
+    // ПРОВЕРКА РОДИТЕЛЬСКОГО ЛИМИТА НА ФОРУМЫ И ПОСТЫ
+    const forumPermission = localStorage.getItem('parent_perm_forum') || 'yes';
+    if (forumPermission === 'no') {
+        alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку');
+        return;
+    }
+
+    const forumInput = document.getElementById('forum-input');
     const text = forumInput.value.trim(); if (!text) return;
     let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || [];
     posts.push({ author: currentCurrentUser, text: text, date: new Date().toLocaleString('ru-RU') });
