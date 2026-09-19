@@ -6,7 +6,17 @@
     <style>
         body {
             font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
-            background-color: #5A5D5A;
+            /* Делаем красивый градиент ретро-неба */
+            background-color: #6EB5FF;
+            background-image: 
+                /* Рисуем белые мягкие облака с помощью радиальных CSS-градиентов */
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 8%),
+                radial-gradient(circle at 15% 23%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 10%),
+                radial-gradient(circle at 22% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 8%),
+                radial-gradient(circle at 75% 15%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 12%),
+                radial-gradient(circle at 83% 18%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 9%),
+                linear-gradient(to bottom, #4EA3FF 0%, #BFE3FF 60%, #E8F5FF 100%);
+            background-attachment: fixed;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -16,6 +26,7 @@
             width: 900px;
             background-color: #FFFFFF;
             border: 2px solid #000000;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.3); /* Тень, чтобы сайт красиво выделялся на фоне неба */
         }
 
         /* ТОЧНАЯ ШАПКА КАК НА СКРИНШОТЕ БЕЗ БЕЛЫХ ПОЛОС */
@@ -141,7 +152,7 @@
             </div>
         </div>
         
-        <!-- CSS-нубик вместо ломающихся картинок -->
+        <!-- Наш CSS-нубик -->
         <div class="css-noob-character">
             <div class="noob-head"></div>
             <div class="noob-arm noob-arm-left"></div>
@@ -221,7 +232,6 @@
                     <div class="lego-brick-flat"><div class="brick-stud"></div><div class="brick-stud"></div><div class="brick-stud"></div></div>
                     <div class="banner-pc-text">Works with your Windows PC!</div>
                     
-                    <!-- Твое всплывающее уведомление о разработке клиента -->
                     <div onclick="alert('Извините, но клиент MegaBLOX пока что в разработке')" class="download-bar-yellow">FREE - Download and Play!</div>
                 </div>
             </div>
@@ -279,7 +289,7 @@
                     </div>
                 </div>
             </div>
-            <!-- ОТДЕЛЬНАЯ СТРАНИЦА ИГРЫ CROSSROADS -->
+            <!-- СТРАНИЦА ИГРЫ CROSSROADS -->
             <div id="game-details-crossroads" class="page-section">
                 <div style="display: flex; gap: 15px; margin-bottom: 20px;">
                     <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
@@ -293,15 +303,6 @@
                         <button onclick="launchGameSim()" style="background-color: #FBD116; color: #000; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS';">PLAY</button>
                     </div>
                 </div>
-
-                <style>
-                    .comments-section { border-top: 2px solid #ccc; padding-top: 15px; margin-top: 20px; }
-                    .comment-block { border: 1px solid #7F9DB9; background: #f9f9f9; padding: 8px; margin-bottom: 8px; border-radius: 3px; display: flex; gap: 10px; }
-                    .comment-user { font-weight: bold; color: #172D69; font-size: 12px; width: 100px; flex-shrink: 0; text-align: center; background: #D4D0C8; padding: 4px; border: 1px solid #808080; }
-                    .comment-text-box { flex-grow: 1; font-size: 12px; display: flex; flex-direction: column; justify-content: space-between; }
-                    .comment-write-form { background: #D4D0C8; border: 1px solid #808080; padding: 10px; margin-top: 15px; }
-                    .comment-write-form textarea { width: 100%; height: 45px; resize: none; font-family: Arial, sans-serif; font-size: 12px; border: 1px solid #7F9DB9; margin-bottom: 6px; padding: 4px; box-sizing: border-box; }
-                </style>
 
                 <div class="comments-section">
                     <h3 style="color:#172D69; margin: 0 0 10px 0;">User Comments</h3>
