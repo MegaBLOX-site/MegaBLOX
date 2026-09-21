@@ -5,66 +5,19 @@
     <title>MegaBLOX Virtual Playworld</title>
     <style>
         body {
-            font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", sans-serif;
-            background-color: #6EB5FF;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 8%),
-                radial-gradient(circle at 15% 23%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 10%),
-                radial-gradient(circle at 22% 20%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 8%),
-                radial-gradient(circle at 75% 15%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 12%),
-                radial-gradient(circle at 83% 18%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 9%),
-                linear-gradient(to bottom, #4EA3FF 0%, #BFE3FF 60%, #E8F5FF 100%);
-            background-attachment: fixed;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            font-family: "Comic Sans MS", sans-serif; background-color: #6EB5FF;
+            background-image: linear-gradient(to bottom, #4EA3FF 0%, #BFE3FF 60%, #E8F5FF 100%);
+            background-attachment: fixed; margin: 0; padding: 20px; display: flex; justify-content: center;
         }
-        .wrapper {
-            width: 900px;
-            background-color: #FFFFFF;
-            border: 2px solid #000000;
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
-        }
-        .top-banner {
-            height: 115px;
-            position: relative;
-            border-bottom: 2px solid #000;
-            background-color: #799263;
-            overflow: hidden;
-        }
-        .header-bg-img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            position: absolute;
-            top: 0; left: 0; z-index: 1;
-        }
-        .header-overlay {
-            position: relative; width: 100%; height: 100%; z-index: 5;
-        }
-        .login-mini-box { 
-            font-size: 11px; font-family: Arial, sans-serif; color: #000;
-            position: absolute; left: 8px; top: 4px; font-weight: bold;
-        }
-        .logo-main-text {
-            font-size: 52px; font-weight: bold; color: #E20005;
-            text-shadow: 2px 2px 0px #000; letter-spacing: -3px; font-style: italic;
-            position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); margin: 0;
-        }
-        .logo-sub-text {
-            font-size: 12px; color: #FFFFFF; font-weight: bold; text-shadow: 1px 1px 2px #000;
-            position: absolute; left: 50%; top: 78%; transform: translateX(-50%); width: 100%; text-align: center;
-        }
-        .sign-up-btn {
-            background-color: #FBD116; border: 2px solid #000; padding: 6px 16px;
-            font-weight: bold; font-size: 15px; text-decoration: none; color: #000;
-            position: absolute; right: 15px; top: 38px; box-shadow: 1px 1px 0px #000;
-        }
-        .nav-bar {
-            background-color: #3F72B5; color: #FFFFFF; padding: 5px;
-            text-align: center; font-size: 13px; word-spacing: 3px; border-bottom: 1px solid #000;
-        }
+        .wrapper { width: 900px; background-color: #FFFFFF; border: 2px solid #000; box-shadow: 0px 10px 30px rgba(0,0,0,0.3); }
+        .top-banner { height: 115px; position: relative; border-bottom: 2px solid #000; background-color: #799263; overflow: hidden; }
+        .header-bg-img { width: 100%; height: 100%; object-fit: fill; position: absolute; top: 0; left: 0; z-index: 1; }
+        .header-overlay { position: relative; width: 100%; height: 100%; z-index: 5; }
+        .login-mini-box { font-size: 11px; font-family: Arial; color: #000; position: absolute; left: 8px; top: 4px; font-weight: bold; }
+        .logo-main-text { font-size: 52px; font-weight: bold; color: #E20005; text-shadow: 2px 2px 0px #000; letter-spacing: -3px; font-style: italic; position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%); margin: 0; }
+        .logo-sub-text { font-size: 12px; color: #FFFFFF; font-weight: bold; text-shadow: 1px 1px 2px #000; position: absolute; left: 50%; top: 78%; transform: translateX(-50%); width: 100%; text-align: center; }
+        .sign-up-btn { background-color: #FBD116; border: 2px solid #000; padding: 6px 16px; font-weight: bold; font-size: 15px; text-decoration: none; color: #000; position: absolute; right: 15px; top: 38px; box-shadow: 1px 1px 0px #000; }
+        .nav-bar { background-color: #3F72B5; color: #FFFFFF; padding: 5px; text-align: center; font-size: 13px; word-spacing: 3px; border-bottom: 1px solid #000; }
         .nav-bar a { color: white; text-decoration: none; font-weight: bold; cursor: pointer; padding: 0 4px; }
         .nav-bar a:hover { text-decoration: underline; }
         .main-content { display: flex; padding: 12px; gap: 12px; }
@@ -96,44 +49,22 @@
     <style>
         .left-sidebar { width: 175px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
         .login-box { border: 1px solid #7F9DB9; background-color: #F2F2F2; padding: 8px; font-size: 11px; margin-bottom: 15px; width: 100%; box-sizing: border-box; }
-        .login-box h3 { margin: 0 0 8px 0; font-size: 12px; background-color: #D4D0C8; padding: 2px; border: 1px solid #808080; font-weight: normal; }
+        .login-box h3 { margin: 0 0 8px 0; font-size: 12px; background-color: #D4D0C8; padding: 2px; border: 1px solid #808080; }
         .login-box label { display: block; margin-top: 4px; }
         .login-box input { width: 92%; margin-bottom: 6px; font-size: 11px; }
-        
         .css-noob-character { width: 100px; height: 140px; margin: 15px auto; position: relative; display: flex; flex-direction: column; align-items: center; }
-        .css-noob-character .noob-head { width: 32px; height: 32px; background-color: #FBD116; border: 2px solid #000000; border-radius: 4px; position: relative; z-index: 3; }
-        .css-noob-character .noob-head::before { content: '•  •'; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #000; position: absolute; top: 2px; left: 4px; }
-        .css-noob-character .noob-head::after { content: '◡'; font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; color: #000; position: absolute; top: 10px; left: 10px; }
-        .css-noob-character .noob-torso { width: 52px; height: 50px; background-color: #3F72B5; border: 2px solid #000000; margin-top: -2px; position: relative; z-index: 2; }
-        .css-noob-character .noob-arm { width: 14px; height: 42px; background-color: #FBD116; border: 2px solid #000000; position: absolute; top: 32px; }
+        .css-noob-character .noob-head { width: 32px; height: 32px; background-color: #FBD116; border: 2px solid #000; border-radius: 4px; position: relative; z-index: 3; }
+        .css-noob-character .noob-head::before { content: '•  •'; font-size: 14px; font-weight: bold; position: absolute; top: 2px; left: 4px; }
+        .css-noob-character .noob-head::after { content: '◡'; font-size: 18px; font-weight: bold; position: absolute; top: 10px; left: 10px; }
+        .css-noob-character .noob-torso { width: 52px; height: 50px; background-color: #3F72B5; border: 2px solid #000; margin-top: -2px; position: relative; z-index: 2; }
+        .css-noob-character .noob-arm { width: 14px; height: 42px; background-color: #FBD116; border: 2px solid #000; position: absolute; top: 32px; }
         .css-noob-character .noob-arm-left { left: 8px; transform: rotate(5deg); }
         .css-noob-character .noob-arm-right { right: 8px; transform: rotate(-5deg); }
         .css-noob-character .noob-legs-container { display: flex; gap: 2px; margin-top: -2px; z-index: 2; }
-        .css-noob-character .noob-leg { width: 24px; height: 45px; background-color: #4E8C4E; border: 2px solid #000000; }
-
-        /* СЕКРЕТНАЯ ЧЁРНАЯ КОРОНА */
-        .black-crown-css {
-            width: 50px; height: 35px; background-color: #1a1a1a; position: relative;
-            clip-path: polygon(0% 100%, 100% 100%, 100% 30%, 80% 60%, 50% 0%, 20% 60%, 0% 30%);
-            border: 1px solid #000; cursor: pointer; margin: 10px auto 0 auto;
-        }
-        .black-crown-css:hover { background-color: #333333; }
-
-        .kid-safe-star-box {
-            background-color: #C1C1FF;
-            clip-path: polygon(
-                50% 0%, 54% 7%, 64% 3%, 66% 11%, 76% 10%, 76% 18%, 85% 20%, 83% 28%, 91% 33%, 87% 41%, 94% 47%, 89% 54%, 
-                94% 61%, 87% 67%, 91% 75%, 83% 80%, 85% 88%, 76% 90%, 76% 98%, 66% 97%, 64% 104%, 54% 101%, 50% 108%, 
-                46% 101%, 36% 104%, 34% 97%, 24% 98%, 24% 88%, 15% 80%, 17% 75%, 9% 67%, 13% 61%, 6% 54%, 11% 47%, 
-                6% 41%, 11% 33%, 9% 28%, 15% 20%, 24% 18%, 24% 10%, 34% 11%, 36% 3%, 46% 7%
-            );
-            padding: 24px 5px; text-align: center; color: #2F2F7F; font-weight: bold; width: 140px; margin-top: 10px;
-        }
-        .parents-link-button {
-            display: block; width: 140px; background-color: #FBD116; color: #000000; border: 2px solid #000000;
-            padding: 6px 2px; font-size: 12px; font-weight: bold; text-decoration: none; text-align: center;
-            box-shadow: 2px 2px 0px #000000; margin-top: 5px; margin-bottom: 15px; cursor: pointer;
-        }
+        .css-noob-character .noob-leg { width: 24px; height: 45px; background-color: #4E8C4E; border: 2px solid #000; }
+        .black-crown-css { width: 50px; height: 35px; background-color: #1a1a1a; position: relative; clip-path: polygon(0% 100%, 100% 100%, 100% 30%, 80% 60%, 50% 0%, 20% 60%, 0% 30%); border: 1px solid #000; cursor: pointer; margin: 10px auto 0 auto; }
+        .kid-safe-star-box { background-color: #C1C1FF; clip-path: polygon(50% 0%, 54% 7%, 64% 3%, 66% 11%, 76% 10%, 76% 18%, 85% 20%, 83% 28%, 91% 33%, 87% 41%, 94% 47%, 89% 54%, 94% 61%, 87% 67%, 91% 75%, 83% 80%, 85% 88%, 76% 90%, 76% 98%, 66% 97%, 64% 104%, 54% 101%, 50% 108%, 46% 101%, 36% 104%, 34% 97%, 24% 98%, 24% 88%, 15% 80%, 17% 75%, 9% 67%, 13% 61%, 6% 54%, 11% 47%, 6% 41%, 11% 33%, 9% 28%, 15% 20%, 24% 18%, 24% 10%, 34% 11%, 36% 3%, 46% 7%); padding: 24px 5px; text-align: center; color: #2F2F7F; font-weight: bold; width: 140px; margin-top: 10px; }
+        .parents-link-button { display: block; width: 140px; background-color: #FBD116; color: #000; border: 2px solid #000; padding: 6px 2px; font-size: 12px; font-weight: bold; text-align: center; box-shadow: 2px 2px 0px #000; margin-top: 5px; margin-bottom: 15px; cursor: pointer; }
     </style>
     <div class="left-sidebar">
         <div class="login-box">
@@ -143,254 +74,180 @@
                 <input type="text" id="reg-username">
                 <label>Password</label>
                 <input type="password" id="reg-password">
-                <button id="btn-login" style="margin-top: 4px; font-size:11px; cursor: pointer;">Login</button>
-                <div style="font-size:10px; margin-top:6px;">
-                    <a href="#" style="color:#555;">Forgot password?</a> | <a href="#" id="link-register" style="color: #CC0000; font-weight: bold;">Register!</a>
+                <div style="margin-top: 8px; display: flex; gap: 4px;">
+                    <button id="btn-login" style="font-size:11px; cursor: pointer; padding: 2px 8px;">Login</button>
+                    <button id="btn-register-action" style="font-size:11px; cursor: pointer; padding: 2px 8px; color: #CC0000; font-weight: bold;">Register!</button>
                 </div>
             </div>
         </div>
-        
-        <div class="css-noob-character">
-            <div class="noob-head"></div>
-            <div class="noob-arm noob-arm-left"></div>
-            <div class="noob-torso"></div>
-            <div class="noob-arm noob-arm-right"></div>
-            <div class="noob-legs-container">
-                <div class="noob-leg"></div>
-                <div class="noob-leg"></div>
-            </div>
-        </div>
-
-        <div class="kid-safe-star-box">
-            <span style="font-size:24px; display:block; margin-bottom:2px; letter-spacing:-1px;">Kid Safe</span>
-            <span style="font-size:11px; font-weight:normal; line-height:1.2; display:block;">This website is<br>COPPA compliant</span>
-        </div>
+        <div class="css-noob-character"><div class="noob-head"></div><div class="noob-arm noob-arm-left"></div><div class="noob-torso"></div><div class="noob-arm noob-arm-right"></div><div class="noob-legs-container"><div class="noob-leg"></div><div class="noob-leg"></div></div></div>
+        <div class="kid-safe-star-box"><span style="font-size:24px; display:block; margin-bottom:2px; letter-spacing:-1px;">Kid Safe</span><span style="font-size:11px; font-weight:normal; line-height:1.2; display:block;">This website is<br>COPPA compliant</span></div>
         <div onclick="showPage('parents-section')" class="parents-link-button">Parents Click Here</div>
-    </div> <!-- САЙДБАР ЗАКРЫТ, СЕТКА НЕ СЛОМАЕТСЯ -->
+    </div> <!-- САЙДБАР ПОЛНОСТЬЮ СТАБИЛЕН И ИЗОЛИРОВАН -->
     <style>
         .center-zone { flex-grow: 1; padding-left: 5px; }
         .welcome-title { color: #333; margin-top: 0; font-size: 26px; border-bottom: 1px solid #ccc; padding-bottom: 3px; margin-bottom: 5px; }
         .feature-item { display: flex; align-items: flex-start; margin-bottom: 14px; gap: 12px; }
-        .feature-num-box {
-            background-color: #172D69; color: white; font-size: 24px; font-weight: bold;
-            width: 42px; height: 42px; display: flex; justify-content: center; align-items: center;
-            border-radius: 5px; box-shadow: -2px 2px 0px #000; border: 1px solid #000; flex-shrink: 0;
-            position: relative;
-        }
-        .feature-num-box::before { content: ''; position: absolute; top: -4px; width: 14px; height: 4px; background: #172D69; border: 1px solid #000; border-bottom: none; border-radius: 2px 2px 0 0; }
+        .feature-num-box { background-color: #172D69; color: white; font-size: 24px; font-weight: bold; width: 42px; height: 42px; display: flex; justify-content: center; align-items: center; border-radius: 5px; box-shadow: -2px 2px 0px #000; border: 1px solid #000; flex-shrink: 0; }
         .feature-text h4 { margin: 0 0 2px 0; color: #172D69; font-size: 15px; }
         .feature-text p { margin: 0; font-size: 12px; color: #444; line-height: 1.2; }
-        
-        .build-it-banner {
-            border: 2px solid #000; background-color: #4E8C4E;
-            background-image: radial-gradient(#3B6E3B 25%, transparent 30%); background-size: 22px 22px; 
-            color: white; padding: 20px; position: relative; margin-top: 15px; height: 240px; box-sizing: border-box; 
-        }
+        .build-it-banner { border: 2px solid #000; background-color: #4E8C4E; background-image: radial-gradient(#3B6E3B 25%, transparent 30%); background-size: 22px 22px; color: white; padding: 20px; position: relative; margin-top: 15px; height: 240px; box-sizing: border-box; }
         .banner-title { font-size: 56px; font-weight: bold; margin: 0; font-style: italic; text-shadow: 4px 4px 0px #000; letter-spacing: -1px; }
-        .banner-pc-text { font-size: 11px; color: #E2E6E2; font-family: Arial, sans-serif; position: absolute; left: 20px; bottom: 70px; }
-        .lego-brick-flat { 
-            position: absolute; right: 50px; top: 40px; width: 150px; height: 85px; 
-            background-color: #161616; border: 3px solid #000; box-shadow: -10px 15px 20px rgba(0,0,0,0.5);
-            display: flex; justify-content: space-around; align-items: flex-start; padding-top: 5px; box-sizing: border-box; transform: rotate(-10deg);
-        }
-        .brick-stud { width: 24px; height: 12px; background-color: #333333; border: 2px solid #000; border-radius: 50%; margin-top: -16px; }
-        
-        .launcher-btn-green {
-            background-color: #4E8C4E; color: white; font-size: 26px; font-weight: bold;
-            border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer;
-            box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS'; text-align: center; text-decoration: none; display: block;
-        }
+        .launcher-btn-green { background-color: #4E8C4E; color: white; font-size: 26px; font-weight: bold; border: 3px solid #000; padding: 12px; width: 100%; cursor: pointer; box-shadow: 3px 3px 0px #000; font-family: 'Comic Sans MS'; text-align: center; text-decoration: none; display: block; }
     </style>
     <div class="center-zone">
-        <!-- HOME PAGE -->
         <div id="main-home" class="page-section active">
             <h2 class="welcome-title">ROBLOX Virtual Playworld</h2>
-            <p style="font-weight:bold; color:#CC0000; margin-top:-6px; font-size:14px; margin-bottom:10px;">ROBLOX is Free!</p>
-            
-            <div class="feature-item">
-                <div class="feature-num-box">1</div>
-                <div class="feature-text"><h4>Build your personal Place</h4><p>Create buildings, vehicles, scenery, and traps with virtual bricks.</p></div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-num-box">2</div>
-                <div class="feature-text"><h4>Meet new friends online</h4><p>Visit your friend's place, chat in 3D, and build together.</p></div>
-            </div>
-            <div class="feature-item">
-                <div class="feature-num-box">3</div>
-                <div class="feature-text"><h4>Battle in the Brick Arenas</h4><p>Play with the slingshot, rocket, or other brick battle tools.</p></div>
-            </div>
-            
-            <div class="build-it-banner">
-                <div class="banner-title">Build It...</div>
-                <div class="lego-brick-flat"><div class="brick-stud"></div><div class="brick-stud"></div><div class="brick-stud"></div></div>
-                <div class="banner-pc-text">Works with your Windows PC!</div>
-                <a href="https://roblox.com" target="_blank" class="download-bar-yellow">FREE - Go to Roblox.com!</a>
-            </div>
+            <div class="feature-item"><div class="feature-num-box">1</div><div class="feature-text"><h4>Build your personal Place</h4><p>Create buildings, vehicles, scenery, and traps with virtual bricks.</p></div></div>
+            <div class="feature-item"><div class="feature-num-box">2</div><div class="feature-text"><h4>Meet new friends online</h4><p>Visit your friend's place, chat in 3D, and build together.</p></div></div>
+            <div class="build-it-banner"><div class="banner-title">Build It...</div><a href="https://roblox.com" target="_blank" style="background-color: #FBD116; color: #000; padding: 10px; font-size: 24px; font-weight: bold; text-align: center; border: 3px solid #000; position: absolute; bottom: 15px; left: 15px; right: 15px; text-decoration: none; display: block; box-shadow: 2px 2px 0px #000;">FREE - Go to Roblox.com!</a></div>
         </div>
-
-        <!-- MY ROBLOX FEED -->
         <div id="my-megabloox" class="page-section">
             <h2 class="welcome-title">My MegaBLOX Feed</h2>
-            <p>Привет, <span id="user-profile-name" style="font-weight:bold; color:#CC0000;">Строитель</span>!</p>
+            <p>Привет, <span id="user-profile-name" style="font-weight:bold; color:#E20005;">Строитель</span>!</p>
             <div style="background:#F2F2F2; border:1px solid #7F9DB9; padding:15px; margin-top:15px;">
                 <h4>Статистика твоего аккаунта:</h4>
                 <p>Блок-поинты: <span style="color:green; font-weight:bold;">150 Б\$</span></p>
                 <p>Статус: <span id="mystery-user-status" style="color:#3F72B5; font-weight:bold;">Разработчик</span></p>
                 
-                <!-- СКРЫТЫЙ БЛОК ДЛЯ СЕКРЕТНОГО АККАУНТА ??? -->
                 <div id="mystery-inventory-block" style="margin-top: 15px; border-top: 1px dotted #808080; padding-top: 10px; display: none;">
                     <h5 style="margin: 0 0 5px 0; color: #cc0000;">Ваш инвентарь:</h5>
-                    <div style="border: 2px solid #000; width: 70px; height: 70px; background: #222; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; align-content: center; cursor:pointer;" onclick="alert('Этот предмет заблокирован создателем. Покупка недоступна.')">
+                    <div style="border: 2px solid #000; width: 70px; height: 70px; background: #222; border-radius: 4px; display: flex; justify-content: center; align-items: center; cursor:pointer;" onclick="alert('Этот предмет заблокирован создателем. Покупка недоступна.')">
                         <div class="black-crown-css"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- GAMES PAGE -->
         <div id="games" class="page-section">
             <h2 class="welcome-title">Games - Most Popular (Now)</h2>
-            <div class="games-list-grid" style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
-                <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('crossroads')">
+            <div style="display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap;">
+                <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; cursor: pointer;" onclick="openGamePage('crossroads')">
                     <div style="width: 100%; height: 90px; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; border: 1px solid #808080;"></div>
                     <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Crossroads (2007)</div>
                     <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: Roblox<br><span style="color: #4E8C4E; font-weight: bold;">● 96 online</span></div>
                 </div>
-
-                <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; box-sizing: border-box; cursor: pointer;" onclick="openGamePage('baseplate')">
-                    <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:20px; text-shadow:1px 1px 2px #000;">MAP</div>
+                <div style="width: 31%; border: 1px solid #ccc; background: #fff; padding: 6px; cursor: pointer;" onclick="openGamePage('baseplate')">
+                    <div style="width: 100%; height: 90px; background-image: linear-gradient(#4a8c4a, #3b6e3b); border: 1px solid #808080; display:flex; justify-content:center; align-items:center; color:white; font-weight:bold; font-size:20px;">MAP</div>
                     <div style="font-size: 12px; font-weight: bold; color: #172D69; margin: 4px 0 2px 0; text-decoration: underline;">Classic Baseplate (2007)</div>
                     <div style="font-family: Arial, sans-serif; font-size: 10px; color: #444;">Creator: Roblox<br><span style="color: #4E8C4E; font-weight: bold;">● 12 online</span></div>
                 </div>
             </div>
         </div>
-        <!-- СТРАНИЦА ИГРЫ CROSSROADS -->
+
         <div id="game-details-crossroads" class="page-section">
             <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center; flex-shrink: 0;"></div>
+                <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: url('https://noikcloud.xyz'); background-size: cover; background-position: center;"></div>
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Crossroads</h2>
-                        <p style="font-size: 13px; margin: 0; color:#333;">Легендарная арена для brickbattle сражений! Клик по кнопке мгновенно откроет официальный лаунчер Roblox на вашем компьютере.</p>
-                    </div>
+                    <div><h2 style="margin:0; color:#172D69;">Classic Crossroads</h2><p style="font-size: 13px; color:#333;">Легендарная арена сражений! Клик по кнопке запустит официальный лаунчер Roblox на вашем ПК.</p></div>
                     <button onclick="launchOfficialRobloxApp(1818)" class="launcher-btn-green">PLAY ROBLOX</button>
                 </div>
             </div>
-            <div class="comments-section">
-                <h3 style="color:#172D69; margin: 0 0 10px 0;">User Comments</h3>
-                <div id="game-comments-list"></div>
-                <div class="comment-write-form">
-                    <textarea id="game-comment-input" placeholder="Напиши своё мнение об этой карте..."></textarea>
-                    <button onclick="sendGameComment()">Добавить отзыв</button>
-                </div>
-            </div>
-            <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад</button>
+            <div id="game-comments-list"></div>
+            <button onclick="showPage('games')" style="margin-top:15px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
         </div>
 
-        <!-- СТРАНИЦА ИГРЫ BASEPLATE -->
         <div id="game-details-baseplate" class="page-section">
             <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-                <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: linear-gradient(#4a8c4a, #3b6e3b); flex-shrink: 0;"></div>
+                <div style="width: 50%; height: 180px; border: 2px solid #000; background-image: linear-gradient(#4a8c4a, #3b6e3b);"></div>
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <h2 style="margin:0 0 5px 0; color:#172D69; font-style: italic;">Classic Baseplate</h2>
-                        <p style="font-size: 13px; margin: 0; color:#333;">Классическое зеленое поле. Клик откроет официальный лаунчер Роблокса.</p>
-                    </div>
+                    <div><h2 style="margin:0; color:#172D69;">Classic Baseplate</h2><p style="font-size: 13px; color:#333;">Классическое зеленое полем Роблокса. Клик откроет лаунчер приложения.</p></div>
                     <button onclick="launchOfficialRobloxApp(9521323380)" class="launcher-btn-green">PLAY ROBLOX</button>
                 </div>
             </div>
-            <button onclick="showPage('games')" style="margin-top:15px; padding:4px 10px; font-weight:bold; cursor:pointer;">&lt; Назад</button>
+            <button onclick="showPage('games')" style="margin-top:15px; font-weight:bold; cursor:pointer;">&lt; Назад к списку игр</button>
         </div>
-        <!-- CATALOG -->
-        <div id="catalog" class="page-section">
-            <h2 class="welcome-title">MegaBLOX Catalog</h2>
-            <p>Раздел товаров находится в разработке.</p>
+        <div id="catalog" class="page-section"><h2 class="welcome-title">MegaBLOX Catalog</h2><p>Раздел товаров находится в разработке.</p></div>
+
+        <div id="friends-section" class="page-section">
+            <h2 class="welcome-title">MegaBLOX Friends List</h2>
+            <div class="friends-grid-container" id="friends-list-box"></div>
         </div>
 
-        <!-- FORUM -->
+        <!-- ДВУХУРОВНЕВЫЙ ФОРУМ С КАТЕГОРИЯМИ -->
         <div id="forum" class="page-section">
             <h2 class="welcome-title">MegaBLOX Global Forum</h2>
-            <div class="forum-container" style="border: 2px solid #3F72B5; background-color: #E2E6E2; padding: 12px; margin-top: 10px; border-radius: 4px;">
-                <div id="forum-posts-box"></div>
-                <div class="forum-form" style="margin-top: 15px; background-color: #D4D0C8; border: 2px solid #808080; padding: 10px; border-radius: 3px;">
-                    <textarea id="forum-input" placeholder="Поделись своими мыслями, братка..." style="width: 100%; height: 50px; font-family: Arial, sans-serif; margin-bottom: 6px; resize: none; border: 1px solid #7F9DB9; padding: 4px; box-sizing: border-box;"></textarea>
-                    <button id="btn-send-post" style="background-color: #3F72B5; color: white; border: 1px solid #000; padding: 4px 15px; font-weight: bold; cursor: pointer; font-size: 12px;">Отправить пост</button>
+            <style>
+                .forum-cat-row { border: 2px solid #3F72B5; background: #E2E6E2; padding: 12px; margin-bottom: 10px; cursor: pointer; border-radius: 4px; }
+                .forum-cat-title { font-size: 16px; font-weight: bold; color: #172D69; text-decoration: underline; }
+                .forum-post-row { border-bottom: 1px solid #ccc; padding: 8px; cursor: pointer; background: #fff; margin-bottom: 5px; border-radius: 3px; }
+                .forum-post-row:hover { background: #f0f4f8; }
+                .forum-post-title-link { font-weight: bold; color: #172D69; font-size: 14px; }
+                .forum-post-meta { font-size: 11px; color: #555; margin-top: 3px; }
+                .forum-delete-btn { color: #cc0000; background: none; border: none; font-weight: bold; cursor: pointer; font-size: 11px; margin-left: 10px; padding: 0; }
+            </style>
+
+            <!-- БЛОК А: Список Категорий Форума -->
+            <div id="forum-categories-view">
+                <div class="forum-cat-row" onclick="openForumCategory('games')"><div class="forum-cat-title">Games</div><div style="font-size:12px;color:#444;margin-top:2px;">Обсуждение плейсов, скриптов и строительства.</div></div>
+                <div class="forum-cat-row" onclick="openForumCategory('chatting')"><div class="forum-cat-title">Chatting</div><div style="font-size:12px;color:#444;margin-top:2px;">Свободное общение на любые темы, ретро-флудилка.</div></div>
+            </div>
+            <!-- БЛОК Б: Список Тем внутри выбранного Раздела -->
+            <div id="forum-posts-list-view" style="display: none;">
+                <button onclick="initForum()" style="margin-bottom:10px;font-weight:bold;cursor:pointer;padding:2px 8px;">&lt; Назад к разделам</button>
+                <h3 id="forum-category-title-text" style="color: #172D69; margin: 0 0 10px 0;">Раздел</h3>
+                <div id="forum-posts-grid"></div>
+                
+                <div style="margin-top: 15px; background-color: #D4D0C8; border: 2px solid #808080; padding: 10px; border-radius: 3px;">
+                    <h4 style="margin: 0 0 6px 0; color:#172D69;">Создать новую тему:</h4>
+                    <input type="text" id="new-post-title" placeholder="Заголовок темы..." style="width: 100%; font-family: Arial; margin-bottom: 6px; padding: 4px; box-sizing: border-box;"><br>
+                    <textarea id="new-post-text" placeholder="Текст вашего сообщения..." style="width: 100%; height: 60px; font-family: Arial; margin-bottom: 6px; resize: none; padding: 4px; box-sizing: border-box;"></textarea>
+                    <button onclick="createNewForumPost()" style="background-color: #3F72B5; color: white; border: 1px solid #000; padding: 4px 15px; font-weight: bold; cursor: pointer;">Опубликовать тему</button>
+                </div>
+            </div>
+            <!-- БЛОК В: Просмотр конкретного поста и комментариев внутри -->
+            <div id="forum-post-details-view" style="display: none;">
+                <button onclick="openForumCategory(currentForumCategory)" style="margin-bottom:12px; font-weight:bold; cursor:pointer; padding: 2px 10px;">&lt; Назад к списку тем</button>
+                
+                <div style="border: 2px solid #3F72B5; background: #fff; padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+                    <h3 id="opened-post-title" style="margin: 0 0 5px 0; color: #172D69; font-style: italic;">Заголовок</h3>
+                    <div style="font-size: 11px; color: #555; border-bottom: 1px dotted #ccc; padding-bottom: 4px; margin-bottom: 8px;">Автор: <b id="opened-post-author" style="color: #E20005;"></b> | Дата: <span id="opened-post-date"></span></div>
+                    <p id="opened-post-text" style="font-size: 13px; color: #111; line-height: 1.4; margin: 0; white-space: pre-wrap;"></p>
+                </div>
+                
+                <h4 style="margin: 0 0 8px 0; color: #172D69;">Комментарии пользователей:</h4>
+                <div id="forum-comments-box" style="background:#fff; border:1px solid #ccc; padding:8px; margin-bottom:15px; border-radius:3px;"></div>
+                
+                <div style="background-color: #D4D0C8; border: 2px solid #808080; padding: 10px; border-radius: 3px;">
+                    <h4 style="margin: 0 0 6px 0; color:#172D69;">Добавить свой comment:</h4>
+                    <textarea id="new-comment-input" placeholder="Напишите ответ..." style="width: 100%; height: 50px; font-family: Arial; margin-bottom: 6px; resize: none; padding: 4px; box-sizing: border-box;"></textarea>
+                    <button onclick="sendForumComment()" style="background-color: #4E8C4E; color: white; border: 1px solid #000; padding: 4px 15px; font-weight: bold; cursor: pointer;">Отправить комментарий</button>
                 </div>
             </div>
         </div>
-        <!-- FRIENDS SECTION -->
-        <div id="friends-section" class="page-section">
-            <h2 class="welcome-title">MegaBLOX Friends List</h2>
-            <style>
-                .friends-grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-top: 10px; }
-                .friend-card { border: 1px solid #808080; background: #f9f9f9; padding: 8px; text-align: center; border-radius: 3px; }
-                .friend-add-btn { background: #FBD116; border: 1px solid #000; font-size: 10px; font-weight: bold; cursor: pointer; margin-top: 5px; width: 100%; padding: 2px 0; }
-                .you-label { color: #E20005; font-weight: bold; font-size: 10px; display: block; margin-top: 2px; }
-            </style>
-            <div class="friends-grid-container" id="friends-list-box"></div>
-        </div>
+
         <!-- PARENTS SECTION -->
         <div id="parents-section" class="page-section">
             <h2 class="welcome-title" style="color: #172D69;">Parents Security Control</h2>
             <style>
-                .parent-box-panel { border: 2px solid #808080; background-color: #F2F2F2; padding: 15px; margin-top: 15px; border-radius: 4px; }
-                .parent-input-field { width: 140px; padding: 4px; font-size: 14px; margin-left: 10px; border: 1px solid #7F9DB9; }
+                .parent-box-panel { border: 2px solid #808080; background-color: #F2F2F2; padding: 15px; margin-top: 15px; }
+                .parent-input-field { width: 140px; padding: 4px; margin-left: 10px; }
                 .parent-btn-next { background-color: #FBD116; border: 2px solid #000; padding: 5px 15px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-                .parent-btn-ask { background-color: #E2E6E2; border: 1px solid #000; padding: 5px 20px; font-weight: bold; cursor: pointer; margin-right: 5px; }
-                .parent-question-item { background: #FFFFFF; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 3px; }
-                .parent-question-text { font-size: 13px; font-weight: bold; color: #333; }
-                .parent-btn-group { display: flex; gap: 5px; }
-                .parent-choice-btn { width: 60px; padding: 4px 0; font-weight: bold; border: 1px solid #000; cursor: pointer; text-align: center; font-size: 12px; background-color: #E2E6E2; }
+                .parent-question-item { background: #FFFFFF; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+                .parent-choice-btn { width: 60px; padding: 4px 0; font-weight: bold; border: 1px solid #000; cursor: pointer; background-color: #E2E6E2; }
                 .parent-choice-btn.selected-yes { background-color: #4E8C4E !important; color: white !important; }
                 .parent-choice-btn.selected-no { background-color: #E20005 !important; color: white !important; }
             </style>
-            <div id="parent-step-unlock" class="parent-box-panel" style="display: none;">
-                <h3 style="margin:0 0 12px 0; color:#172D69;">Панель заблокирована</h3>
-                <label>Введите родительский пароль:</label>
-                <input type="password" id="parent-unlock-password-input" class="parent-input-field"><br><br>
-                <button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти</button>
-            </div>
-            <div id="parent-step-age" class="parent-box-panel" style="display: none;">
-                <h3 style="margin:0 0 12px 0; color:#172D69;">Регистрация контроля</h3>
-                <p style="font-size:12px; color:#c00; font-weight:bold;" id="parent-warning-login">⚠️ Войдите в аккаунт игрока!</p>
-                <label>Сколько лет вашему ребёнку? (0 - 14):</label>
-                <input type="number" id="parent-child-age-input" class="parent-input-field"><br><br>
-                <button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить</button>
-            </div>
-            <div id="parent-step-settings" class="parent-box-panel" style="display: none;">
-                <h3 style="margin:0 0 5px 0; color:#4E8C4E;">Настройки</h3>
-                <p style="font-size:12px; color:#555;">Персонаж: <b id="display-parent-user"></b> (Возраст: <span id="display-parent-age"></span> лет)</p>
-                <div class="parent-question-item"><div class="parent-question-text">Можно ли ребёнку писать в чат?</div><div class="parent-btn-group"><button id="p-chat-yes" class="parent-choice-btn" onclick="saveParentPermission('chat', 'yes')">Да</button><button id="p-chat-no" class="parent-choice-btn" onclick="saveParentPermission('chat', 'no')">Нет</button></div></div>
-                <div class="parent-question-item"><div class="parent-question-text">Можно ли ребёнку покупать вещи?</div><div class="parent-btn-group"><button id="p-catalog-yes" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'yes')">Да</button><button id="p-catalog-no" class="parent-choice-btn" onclick="saveParentPermission('catalog', 'no')">Нет</button></div></div>
-                <div class="parent-question-item"><div class="parent-question-text">Можно ли ребёнку писать в форумы?</div><div class="parent-btn-group"><button id="p-forum-yes" class="parent-choice-btn" onclick="saveParentPermission('forum', 'yes')">Да</button><button id="p-forum-no" class="parent-choice-btn" onclick="saveParentPermission('forum', 'no')">Нет</button></div></div>
-                <div class="parent-question-item"><div class="parent-question-text">Можно ли ребёнку добавлять в друзья?</div><div class="parent-btn-group"><button id="p-friends-yes" class="parent-choice-btn" onclick="saveParentPermission('friends', 'yes')">Да</button><button id="p-friends-no" class="parent-choice-btn" onclick="saveParentPermission('friends', 'no')">Нет</button></div></div>
+            <div id="parent-step-unlock" class="parent-box-panel" style="display: none;"><h3>Панель заблокирована</h3><label>Введите родительский пароль:</label><input type="password" id="parent-unlock-password-input" class="parent-input-field"><br><br><button onclick="verifyParentPasswordUnlock()" class="parent-btn-next">Войти</button></div>
+            <div id="parent-step-age" class="parent-box-panel" style="display: none;"><h3>Регистрация контроля</h3><p style="font-size:12px; color:#c00; font-weight:bold;" id="parent-warning-login">⚠️ Войдите в аккаунт игрока!</p><label>Сколько лет вашему ребёнку? (0 - 14):</label><input type="number" id="parent-child-age-input" class="parent-input-field"><br><br><button onclick="checkParentAgeLimit()" class="parent-btn-next">Продолжить</button></div>
+            <div id="parent-step-settings" class="parent-box-panel" style="display: none;"><h3>Настройки</h3><p>Персонаж: <b id="display-parent-user"></b> (Возраст: <span id="display-parent-age"></span> лет)</p>
+                <div class="parent-question-item"><div>Можно ли ребёнку писать в чат?</div><div><button id="p-chat-yes" class="parent-choice-btn" onclick="saveParentPermission('chat', 'yes')">Да</button><button id="p-chat-no" class="parent-choice-btn" onclick="saveParentPermission('chat', 'no')">Нет</button></div></div>
+                <div class="parent-question-item"><div>Можно ли ребёнку писать в форумы?</div><div><button id="p-forum-yes" class="parent-choice-btn" onclick="saveParentPermission('forum', 'yes')">Да</button><button id="p-forum-no" class="parent-choice-btn" onclick="saveParentPermission('forum', 'no')">Нет</button></div></div>
+                <div class="parent-question-item"><div>Можно ли ребёнку добавлять в друзья?</div><div><button id="p-friends-yes" class="parent-choice-btn" onclick="saveParentPermission('friends', 'yes')">Да</button><button id="p-friends-no" class="parent-choice-btn" onclick="saveParentPermission('friends', 'no')">Нет</button></div></div>
                 <button onclick="goToPasswordQuestionStep()" class="parent-btn-next">Сохранить</button>
             </div>
-            <div id="parent-step-ask-password" class="parent-box-panel" style="display: none;">
-                <h3 style="margin:0 0 10px 0;">Защита панели</h3>
-                <label><b>Не хотите ли вы сделать пароль?</b></label><br><br>
-                <button onclick="chooseToCreatePassword(true)" class="parent-btn-ask" style="background-color:#4E8C4E; color:white;">Да</button>
-                <button onclick="chooseToCreatePassword(false)" class="parent-btn-ask" style="background-color:#E20005; color:white;">Нет</button>
-            </div>
-            <div id="parent-step-type-password" class="parent-box-panel" style="display: none;">
-                <h3 style="margin:0 0 5px 0;">Создание пароля</h3>
-                <p style="font-size:12px; color:#555;">Введите пароль (не менее 5 символов):</p>
-                <input type="password" id="parent-new-secure-pass-input" class="parent-input-field"><br><br>
-                <button onclick="submitNewSecureParentPassword()" class="parent-btn-next" style="background:#4E8C4E; color:white;">Подтвердить</button>
-            </div>
-        </div> <!-- Конец parents-section -->
+            <div id="parent-step-ask-password" class="parent-box-panel" style="display: none;"><h3>Защита панели</h3><label><b>Не хотите ли вы сделать пароль?</b></label><br><br><button onclick="chooseToCreatePassword(true)" class="parent-btn-next" style="background:#4E8C4E; color:white;">Да</button><button onclick="chooseToCreatePassword(false)" class="parent-btn-next" style="background:#E20005; color:white;">Нет</button></div>
+            <div id="parent-step-type-password" class="parent-box-panel" style="display: none;"><h3>Создание пароля</h3><p>Введите пароль (не менее 5 символов):</p><input type="password" id="parent-new-secure-pass-input" class="parent-input-field"><br><br><button onclick="submitNewSecureParentPassword()" class="parent-btn-next" style="background:#4E8C4E; color:white;">Подтвердить</button></div>
+        </div>
     </div> <!-- Закрытие center-zone -->
 </div> <!-- Закрытие main-content -->
-    <div class="cool-places-section" style="background-color: #D4D0C8; border-top: 2px solid #000; padding: 10px; margin-top: 15px; width: 100%; box-sizing: border-box;">
-        <div style="font-weight:bold; font-size: 13px; padding-left: 5px;">Cool Places</div>
-        <div class="places-grid" style="display: flex; justify-content: space-between; margin-top: 8px; gap: 8px;">
-            <div style="width: 24%; height: 110px; background-color: #5E945E; border: 1px solid #000; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 5px; font-size: 11px; font-weight: bold; box-sizing: border-box; background-image: linear-gradient(transparent 60%, rgba(0,0,0,0.7)), url('https://noikcloud.xyz'); background-size: cover; background-position: center; cursor: pointer;" onclick="openGamePage('crossroads')">
-                <div style="font-family: 'Comic Sans MS', sans-serif; font-size: 11px; font-weight: bold; color: #172D69; text-decoration: underline; margin-bottom: 1px;">Crossroads</div>By Roblox<br><span style="color: #4E8C4E; font-weight: bold;">👍 98% (4.1k)</span>
-            </div>
+
+    <div style="background-color: #D4D0C8; border-top: 2px solid #000; padding: 10px; margin-top: 15px; box-sizing: border-box;">
+        <div style="font-weight:bold; font-size: 13px;">Cool Places</div>
+        <div style="width: 24%; height: 110px; background-color: #5E945E; border: 1px solid #000; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 5px; font-size: 11px; font-weight: bold; background-image: linear-gradient(transparent 60%, rgba(0,0,0,0.7)), url('https://noikcloud.xyz'); background-size: cover; background-position: center; cursor: pointer;" onclick="openGamePage('crossroads')">
+            <div style="color: #172D69; text-decoration: underline;">Crossroads</div>By Roblox<br>👍 98% (4.1k)
         </div>
     </div>
-    <div class="footer" style="font-family: Arial, sans-serif; font-size: 10px; color: #555; text-align: center; padding: 12px; border-top: 1px solid #ccc; background-color: #F2F2F2; width: 100%; box-sizing: border-box;">
-        MegaBLOX ©2007. <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
-    </div>
+    <div style="font-family: Arial; font-size: 10px; color: #555; text-align: center; padding: 12px; border-top: 1px solid #ccc; background-color: #F2F2F2;">MegaBLOX ©2007. <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></div>
 </div> <!-- Закрытие wrapper -->
 <script>
 let currentCurrentUser = localStorage.getItem('megablox_active_session') || "";
@@ -398,137 +255,161 @@ let isLoggedIn = currentCurrentUser !== "";
 let isParentSectionUnlocked = false; 
 
 const btnLogin = document.getElementById('btn-login');
-const linkRegister = document.getElementById('link-register');
+const linkRegister = document.getElementById('btn-register-action');
 const inputName = document.getElementById('reg-username');
 const inputPass = document.getElementById('reg-password');
 const loginHeader = document.getElementById('login-header');
 const formFields = document.getElementById('login-form-fields');
 const profileNameSpan = document.getElementById('user-profile-name');
-const forumPostsBox = document.getElementById('forum-posts-box');
-const forumInput = document.getElementById('forum-input');
-const btnSendPost = document.getElementById('btn-send-post');
 
 const globalPlayersList = [
     "BuildMaster07", "odealko", "mahimi", "???", "Telamon", "jhed", "Clockwork", 
-    "Wookong", "Shedletsky", "Erik.Cassel", "John Shedletsky", "Brighton", 
-    "Roblox", "Anaminus", "Miked", "Koopa", "FF9", "Gamer01", "BrickLayer", 
-    "NoobSlayer", "Xblox", "StealthBrick", "BuildMan", "MineBlock", "RetroGuy", 
-    "VibeX", "LiminalSpacer", "GhostInTheMatrix", "AlphaBuilder", "DeltaBlox"
+    "Shedletsky", "Erik.Cassel", "John Shedletsky", "Roblox", "LiminalSpacer"
 ];
 
-function showPage(pageId) {
-    document.querySelectorAll('.page-section').forEach(section => {
-        section.classList.remove('active');
-        section.style.display = 'none';
-    });
-    const targetElement = document.getElementById(pageId);
-    if(targetElement) {
-        targetElement.classList.add('active');
-        targetElement.style.display = 'block';
-    }
-    if(pageId === 'forum') { renderForumPosts(); }
-    if(pageId === 'game-details-crossroads') { renderGameComments(); }
-    if(pageId === 'friends-section') { renderFriendsList(); }
-    if(pageId === 'parents-section') { setupParentPageUI(); }
-}
+let currentForumCategory = "games";
 
-function openGamePage(gameKey) {
-    if(gameKey === 'crossroads') showPage('game-details-crossroads');
-    if(gameKey === 'baseplate') showPage('game-details-baseplate');
+function showPage(pageId) {
+    document.querySelectorAll('.page-section').forEach(s => { s.classList.remove('active'); s.style.display = 'none'; });
+    const t = document.getElementById(pageId); if(t) { t.classList.add('active'); t.style.display = 'block'; }
+    if(pageId === 'forum') initForum(); if(pageId === 'friends-section') renderFriendsList(); if(pageId === 'parents-section') setupParentPageUI();
 }
+function openGamePage(k) { if(k === 'crossroads') showPage('game-details-crossroads'); if(k === 'baseplate') showPage('game-details-baseplate'); }
 
 function renderFriendsList() {
-    const box = document.getElementById('friends-list-box');
-    if(!box) return;
-    box.innerHTML = globalPlayersList.map(name => {
-        let label = "";
-        let btnHtml = `<button class="friend-add-btn" onclick="sendFriendRequest('${name}')">Добавить в друзья</button>`;
-        if (isLoggedIn && name === currentCurrentUser) { label = " <span class='you-label'>(Это вы)</span>"; btnHtml = ""; }
-        if (name === "???") {
-            return `<div class="friend-card" style="border: 1px dotted #cc0000; background: #fffcfc;"><div style="font-weight: bold; color: #cc0000; font-style: italic;">${name}${label}</div><div style="font-size: 10px; color: #777;">Статус: ???</div>${btnHtml}</div>`;
-        }
-        return `<div class="friend-card"><div style="font-weight: bold; color: #172D69;">${name}${label}</div><div style="font-size: 10px; color: #555;">Статус: Строитель</div>${btnHtml}</div>`;
+    const b = document.getElementById('friends-list-box'); if(!b) return;
+    b.innerHTML = globalPlayersList.map(n => {
+        let label = "", btn = `<button class="friend-add-btn" onclick="sendFriendRequest('${n}')">Добавить в друзья</button>`;
+        if (isLoggedIn && n === currentCurrentUser) { label = " <span class='you-label'>(Это вы)</span>"; btn = ""; }
+        if (n === "???") return `<div class="friend-card" style="border: 1px dotted #c00;"><div style="font-weight:bold; color:#c00;">${n} ${label}</div><div style="font-size:10px;">Статус: ???</div>${btn}</div>`;
+        return `<div class="friend-card"><div style="font-weight:bold; color:#172D69;">${n} ${label}</div><div style="font-size:10px;">Строитель</div>${btn}</div>`;
     }).join('');
 }
-function sendFriendRequest(targetName) {
-    if (!isLoggedIn) { alert('Войдите в аккаунт!'); return; }
+function sendFriendRequest(t) {
+    if (!isLoggedIn) { alert('Войдите!'); return; }
     if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_friends`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ добавлять в друзья обратитесь к взрослому человеку'); return; }
-    alert(`Запрос в друзья для ${targetName} успешно отправлен!`);
+    alert(`Запрос для ${t} успешно отправлен!`);
+}
+function initForum() {
+    document.getElementById('forum-categories-view').style.display = 'block';
+    document.getElementById('forum-posts-list-view').style.display = 'none';
+    document.getElementById('forum-post-details-view').style.display = 'none';
+    if (!localStorage.getItem('mb_forum_posts_v3')) {
+        const defaultPosts = [
+            { id: 1, category: "games", author: "BuildMaster07", title: "Мой новый ремейк Crossroads 2007!", text: "Ребята, я полностью воссоздал классическую арену! Заходите тестировать и оценивать лаунчер.", date: "21.09.2026, 12:00:00", comments: [{ author: "odealko", text: "Это шикарно! Всё работает!", date: "21.09.2026, 12:05:00" }] },
+            { id: 2, category: "chatting", author: "Shedletsky", title: "Помните старый уютный домик?", text: "Зашёл сегодня на пустой Baseplate, такая лиминальная ностальгия нахлынула... Никого нет, только ветер шумит.", date: "21.09.2026, 13:00:00", comments: [] }
+        ];
+        localStorage.setItem('mb_forum_posts_v3', JSON.stringify(defaultPosts));
+    }
+}
+function openForumCategory(catId) {
+    currentForumCategory = catId; document.getElementById('forum-category-title-text').innerText = catId === 'games' ? 'Раздел: Games' : 'Раздел: Chatting';
+    document.getElementById('forum-categories-view').style.display = 'none'; 
+    document.getElementById('forum-post-details-view').style.display = 'none'; // ФИКС НАЛОЖЕНИЯ
+    document.getElementById('forum-posts-list-view').style.display = 'block'; renderPostsList();
+}
+function renderPostsList() {
+    const box = document.getElementById('forum-posts-grid'); if(!box) return;
+    let posts = JSON.parse(localStorage.getItem('mb_forum_posts_v3')) || []; let filtered = posts.filter(p => p.category === currentForumCategory);
+    if(filtered.length === 0) { box.innerHTML = "<p style='padding:10px; color:#666;'>В этом разделе пока нет постов.</p>"; return; }
+    box.innerHTML = filtered.map(p => {
+        let delBtn = ""; if (isLoggedIn && (p.author === currentCurrentUser || currentCurrentUser === "BuildMaster07")) { delBtn = `<button class="forum-delete-btn" onclick="deleteForumPost(${p.id}); event.stopPropagation();">[Удалить]</button>`; }
+        return `<div class="forum-post-row" onclick="viewPostDetails(${p.id})"><div class="forum-post-title-link">${p.title}</div><div class="forum-post-meta">Автор: <b>${p.author}</b> | Ответы: ${p.comments.length} | ${p.date} ${delBtn}</div></div>`;
+    }).join('');
+}
+let activeViewingPostId = null;
+function viewPostDetails(id) {
+    let posts = JSON.parse(localStorage.getItem('mb_forum_posts_v3')) || []; let p = posts.find(x => x.id === id); if (!p) return; activeViewingPostId = id;
+    document.getElementById('forum-posts-list-view').style.display = 'none'; 
+    document.getElementById('forum-categories-view').style.display = 'none';
+    document.getElementById('forum-post-details-view').style.display = 'block';
+    document.getElementById('opened-post-title').innerText = p.title; document.getElementById('opened-post-author').innerText = p.author;
+    document.getElementById('opened-post-date').innerText = p.date; document.getElementById('opened-post-text').innerText = p.text;
+    renderPostComments(p);
+}
+function renderPostComments(p) {
+    const box = document.getElementById('forum-comments-box'); if(!box) return;
+    if (p.comments.length === 0) { box.innerHTML = "<p style='color:#777;font-style:italic;'>Комментариев пока нет. Напиши первый!</p>"; return; }
+    box.innerHTML = p.comments.map(c => `<div style="border-bottom:1px dotted #ccc;padding:4px 0;"><span style="font-size:11px;color:#172D69;">👤 <b>${c.author}</b> (${c.date})</span><div style="font-size:12px;color:#333;padding-left:10px;">${c.text}</div></div>`).join('');
+}
+function createNewForumPost() {
+    if (!isLoggedIn) { alert('Войдите!'); return; }
+    if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_forum`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку'); return; }
+    const t = document.getElementById('new-post-title').value.trim(), txt = document.getElementById('new-post-text').value.trim(); if (!t || !txt) { alert('Заполните поля!'); return; }
+    let posts = JSON.parse(localStorage.getItem('mb_forum_posts_v3')) || []; posts.push({ id: Date.now(), category: currentForumCategory, author: currentCurrentUser, title: t, text: txt, date: new Date().toLocaleString('ru-RU'), comments: [] });
+    localStorage.setItem('mb_forum_posts_v3', JSON.stringify(posts)); document.getElementById('new-post-title').value = ''; document.getElementById('new-post-text').value = ''; renderPostsList();
+}
+function sendForumComment() {
+    if (!isLoggedIn) { alert('Войдите!'); return; }
+    if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_forum`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку'); return; }
+    const input = document.getElementById('new-comment-input'); const txt = input.value.trim(); if (!txt) return;
+    let posts = JSON.parse(localStorage.getItem('mb_forum_posts_v3')) || []; let idx = posts.findIndex(x => x.id === activeViewingPostId); if (idx === -1) return;
+    posts[idx].comments.push({ author: currentCurrentUser, text: txt, date: new Date().toLocaleString('ru-RU') });
+    localStorage.setItem('mb_forum_posts_v3', JSON.stringify(posts)); input.value = ''; viewPostDetails(activeViewingPostId);
+}
+function deleteForumPost(id) {
+    if (!isLoggedIn) return; let posts = JSON.parse(localStorage.getItem('mb_forum_posts_v3')) || [];
+    posts = posts.filter(x => x.id !== id); localStorage.setItem('mb_forum_posts_v3', JSON.stringify(posts)); renderPostsList();
 }
 function setupParentPageUI() {
-    document.getElementById('parent-step-unlock').style.display = 'none';
-    document.getElementById('parent-step-age').style.display = 'none';
-    document.getElementById('parent-step-settings').style.display = 'none';
-    document.getElementById('parent-step-ask-password').style.display = 'none';
-    document.getElementById('parent-step-type-password').style.display = 'none';
-    if (!isLoggedIn) { document.getElementById('parent-warning-login').style.display = 'block'; document.getElementById('parent-step-age').style.display = 'block'; return; }
-    document.getElementById('parent-warning-login').style.display = 'none';
-    const savedPassword = localStorage.getItem(`parent_pass_${currentCurrentUser}`);
-    const savedAge = localStorage.getItem(`parent_age_${currentCurrentUser}`);
-    if (savedPassword && savedPassword !== "none" && !isParentSectionUnlocked) { document.getElementById('parent-step-unlock').style.display = 'block'; } 
-    else if (savedAge) { document.getElementById('parent-step-settings').style.display = 'block'; document.getElementById('display-parent-age').innerText = savedAge; document.getElementById('display-parent-user').innerText = currentCurrentUser; loadParentSettingsUI(); } 
-    else { document.getElementById('parent-step-age').style.display = 'block'; }
+    ['unlock','age','settings','ask-password','type-password'].forEach(id=>document.getElementById('parent-step-'+id).style.display='none');
+    if (!isLoggedIn) { document.getElementById('parent-warning-login').style.display='block'; document.getElementById('parent-step-age').style.display='block'; return; }
+    let p = localStorage.getItem(`parent_pass_${currentCurrentUser}`), a = localStorage.getItem(`parent_age_${currentCurrentUser}`);
+    if (p && p !== "none" && !isParentSectionUnlocked) document.getElementById('parent-step-unlock').style.display='block';
+    else if (a) { document.getElementById('parent-step-settings').style.display='block'; document.getElementById('display-parent-age').innerText=a; document.getElementById('display-parent-user').innerText=currentCurrentUser; loadParentSettingsUI(); }
+    else document.getElementById('parent-step-age').style.display='block';
 }
 function checkParentAgeLimit() {
-    if (!isLoggedIn) { alert('Войдите в аккаунт игрока!'); return; }
-    const age = parseInt(document.getElementById('parent-child-age-input').value);
-    if (isNaN(age) || age < 0) { alert('Введите корректный возраст!'); return; }
-    if (age >= 15) { alert('Ошибка! Возраст превышает лимит родительского контроля!'); } 
-    else { localStorage.setItem(`parent_age_${currentCurrentUser}`, age); setupParentPageUI(); }
+    let a = parseInt(document.getElementById('parent-child-age-input').value); if (isNaN(a) || a<0) { alert('Введите возраст!'); return; }
+    if (a >= 15) alert('Превышен лимит контроля!'); else { localStorage.setItem(`parent_age_${currentCurrentUser}`, a); setupParentPageUI(); }
 }
-function goToPasswordQuestionStep() { document.getElementById('parent-step-settings').style.display = 'none'; if (localStorage.getItem(`parent_pass_${currentCurrentUser}`)) { window.location.reload(); return; } document.getElementById('parent-step-ask-password').style.display = 'block'; }
-function chooseToCreatePassword(isYes) { document.getElementById('parent-step-ask-password').style.display = 'none'; if (isYes) { document.getElementById('parent-step-type-password').style.display = 'block'; } else { localStorage.setItem(`parent_pass_${currentCurrentUser}`, "none"); alert('Сохранено без пароля! 😎🧱'); window.location.reload(); } }
-function submitNewSecureParentPassword() { const securePass = document.getElementById('parent-new-secure-pass-input').value.trim(); if (securePass.length < 5) { alert('Ошибка! Пароль должен быть не менее 5 символов!'); return; } localStorage.setItem(`parent_pass_${currentCurrentUser}`, securePass); isParentSectionUnlocked = true; alert('Замок активирован!'); window.location.reload(); }
-function verifyParentPasswordUnlock() { if (document.getElementById('parent-unlock-password-input').value.trim() === localStorage.getItem(`parent_pass_${currentCurrentUser}`)) { isParentSectionUnlocked = true; document.getElementById('parent-unlock-password-input').value = ''; setupParentPageUI(); } else { alert('Неверный родительский пароль!'); } }
-function saveParentPermission(key, value) { if (isLoggedIn) { localStorage.setItem(`parent_perm_${currentCurrentUser}_${key}`, value); highlightParentButtons(key, value); } }
-function highlightParentButtons(key, value) { const btnYes = document.getElementById(`p-${key}-yes`); const btnNo = document.getElementById(`p-${key}-no`); if (!btnYes || !btnNo) return; btnYes.classList.remove('selected-yes'); btnNo.classList.remove('selected-no'); if (value === 'yes') btnYes.classList.add('selected-yes'); else if (value === 'no') btnNo.classList.add('selected-no'); }
-function loadParentSettingsUI() { ['chat', 'catalog', 'forum', 'friends'].forEach(feat => highlightParentButtons(feat, localStorage.getItem(`parent_perm_${currentCurrentUser}_${feat}`) || 'yes')); }
+function goToPasswordQuestionStep() { document.getElementById('parent-step-settings').style.display='none'; if (localStorage.getItem(`parent_pass_${currentCurrentUser}`)) { window.location.reload(); return; } document.getElementById('parent-step-ask-password').style.display='block'; }
+function chooseToCreatePassword(y) { document.getElementById('parent-step-ask-password').style.display='none'; if (y) document.getElementById('parent-step-type-password').style.display='block'; else { localStorage.setItem(`parent_pass_${currentCurrentUser}`, "none"); alert('Сохранено! 😎🧱'); window.location.reload(); } }
+function submitNewSecureParentPassword() { let s = document.getElementById('parent-new-secure-pass-input').value.trim(); if (s.length < 5) { alert('Пароль от 5 знаков!'); return; } localStorage.setItem(`parent_pass_${currentCurrentUser}`, s); isParentSectionUnlocked = true; alert('Замок активирован!'); window.location.reload(); }
+function verifyParentPasswordUnlock() { if (document.getElementById('parent-unlock-password-input').value.trim() === localStorage.getItem(`parent_pass_${currentCurrentUser}`)) { isParentSectionUnlocked = true; setupParentPageUI(); } else alert('Неверный пароль!'); }
+function saveParentPermission(k, v) { if (isLoggedIn) { localStorage.setItem(`parent_perm_${currentCurrentUser}_${k}`, v); highlightParentButtons(k, v); } }
+function highlightParentButtons(k, v) { let y = document.getElementById(`p-${k}-yes`), n = document.getElementById(`p-${k}-no`); if (!y || !n) return; y.classList.remove('selected-yes'); n.classList.remove('selected-no'); if (v === 'yes') y.classList.add('selected-yes'); else if (v === 'no') n.classList.add('selected-no'); }
+function loadParentSettingsUI() { ['chat', 'forum', 'friends'].forEach(f => highlightParentButtons(f, localStorage.getItem(`parent_perm_${currentCurrentUser}_${f}`) || 'yes')); }
 
-function renderGameComments() { let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || [{ user: "BuildMaster07", text: "Моя лучшая карта!" }]; document.getElementById('game-comments-list').innerHTML = comments.map(c => `<div class="comment-block"><div class="comment-user">👤 ${c.user}</div><div class="comment-text-box"><div>${c.text}</div></div></div>`).join(''); }
-function sendGameComment() { if (!isLoggedIn) { alert('Войди в аккаунт!'); return; } if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_forum`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку'); return; } const text = document.getElementById('game-comment-input').value.trim(); if (!text) return; let comments = JSON.parse(localStorage.getItem('mb_crossroads_comments')) || []; comments.push({ user: currentCurrentUser, text: text }); localStorage.setItem('mb_crossroads_comments', JSON.stringify(comments)); document.getElementById('game-comment-input').value = ''; renderGameComments(); }
-function renderForumPosts() { let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || [{ author: "BuildMaster07", text: "Всем привет!", date: "15.09.2007" }]; forumPostsBox.innerHTML = posts.map(post => `<div class="forum-post"><div class="post-author">${post.author}</div><div class="post-content"><div>${post.text}</div><div class="post-date">${post.date}</div></div></div>`).join(''); }
-btnSendPost.addEventListener('click', () => { if (!isLoggedIn) { alert('Войди в аккаунт!'); return; } if ((localStorage.getItem(`parent_perm_${currentCurrentUser}_forum`) || 'yes') === 'no') { alert('Извините но родитель ограничил вам доступ писать в форумы обратитесь к взрослому человеку'); return; } const text = forumInput.value.trim(); if (!text) return; let posts = JSON.parse(localStorage.getItem('megablox_forum_posts')) || []; posts.push({ author: currentCurrentUser, text: text, date: new Date().toLocaleString('ru-RU') }); localStorage.setItem('megablox_forum_posts', JSON.stringify(posts)); forumInput.value = ''; renderForumPosts(); });
-
-// ЖЁСТКАЯ ОЧИСТКА ДЛЯ LOGOUT
-function logoutUserSession() {
-    localStorage.removeItem('megablox_active_session');
-    window.location.reload();
-}
-
-if (isLoggedIn) { applyLoginState(currentCurrentUser); } else { showPage('main-home'); }
-
-function applyLoginState(name) {
+function logoutUserSession() { localStorage.removeItem('megablox_active_session'); window.location.reload(); }
+if (isLoggedIn) applyLoginState(currentCurrentUser); else showPage('main-home');
+function applyLoginState(n) {
     loginHeader.innerText = "Welcome!";
-    formFields.innerHTML = `
-        <div style="font-weight:bold; font-size:13px; color:#3F72B5; text-align:center; margin-bottom:8px;">${name}</div>
-        <div style="text-align:center;"><button onclick="logoutUserSession()" style="background:none; border:none; color:#555; text-decoration:none; font-weight:bold; cursor:pointer; font-family:Arial; font-size:11px; padding: 2px 5px;">[ Logout ]</button></div>
-    `;
-    profileNameSpan.innerText = name;
-    
-    if (name === "???") {
-        document.getElementById('mystery-inventory-block').style.display = "block";
-        document.getElementById('mystery-user-status').innerText = "???";
-        document.getElementById('mystery-user-status').style.color = "#cc0000";
-    } else {
-        document.getElementById('mystery-inventory-block').style.display = "none";
-    }
+    formFields.innerHTML = `<div style="font-weight:bold;color:#3F72B5;text-align:center;margin-bottom:4px;">${n}</div><div style="text-align:center;"><button onclick="logoutUserSession()" style="background:none;border:none;color:#555;font-weight:bold;cursor:pointer;font-size:11px;font-family:Arial;">[ Logout ]</button></div>`;
+    if(profileNameSpan) profileNameSpan.innerText = n;
+    let b = document.getElementById('mystery-inventory-block');
+    if (n === "???") { if(b) b.style.display = "block"; document.getElementById('mystery-user-status').innerText = "???"; document.getElementById('mystery-user-status').style.color = "#cc0000"; } 
+    else { if(b) b.style.display = "none"; }
     showPage('my-megabloox');
 }
 
-linkRegister.addEventListener('click', (e) => { e.preventDefault(); const name = inputName.value.trim(); const pass = inputPass.value.trim(); if (!name || !pass) { alert('Введи данные!'); return; } if (localStorage.getItem('mb_user_' + name)) { alert('Ник занят!'); } else { localStorage.setItem('mb_user_' + name, pass); alert(`Аккаунт ${name} создан!`); } });
-btnLogin.addEventListener('click', () => {
-    const name = inputName.value.trim(); const pass = inputPass.value.trim();
-    if (name === "BuildMaster07" && pass === "123") { localStorage.setItem('megablox_active_session', name); window.location.reload(); return; }
-    if (name === "???" && pass === "???") { localStorage.setItem('megablox_active_session', name); window.location.reload(); return; }
-    if (localStorage.getItem('mb_user_' + name) === pass && pass) { localStorage.setItem('megablox_active_session', name); window.location.reload(); } else { alert('Неверные данные!'); }
-});
-
-function launchOfficialRobloxApp(placeId) {
-    if (!isLoggedIn) { alert('Пожалуйста, войдите в аккаунт перед началом игры!'); return; }
-    alert(`[MegaBLOX Launcher 2007]\n\nЗапуск клиента Роблокс (Place ID: ${placeId})...\nИгрок: ${currentCurrentUser}`);
-    window.location.href = "roblox://browserLaunch/1/placeId=" + placeId;
+// НАМЕРТВО ИСПРАВЛЕННЫЙ ТРИГГЕР РЕГИСТРАЦИИ (ФИКС РЕГИСТРАЦИИ!)
+if(linkRegister) {
+    linkRegister.addEventListener('click', (e) => {
+        e.preventDefault(); const n = inputName.value.trim(), p = inputPass.value.trim(); if (!n || !p) { alert('Заполните поля!'); return; }
+        // Проверяем занят ли ник
+        if (localStorage.getItem('mb_user_' + n) || n === "BuildMaster07" || n === "???" || globalPlayersList.includes(n)) { 
+            alert('Ошибка! Этот никнейм уже занят!'); 
+            return; 
+        }
+        // Записываем в базу и авто-логиним сессию
+        localStorage.setItem('mb_user_' + n, p); 
+        localStorage.setItem('megablox_active_session', n); 
+        alert(`Аккаунт ${n} успешно создан!`); 
+        window.location.reload(); 
+    });
 }
-renderForumPosts();
+if(btnLogin) {
+    btnLogin.addEventListener('click', () => {
+        const n = inputName.value.trim(), p = inputPass.value.trim();
+        if (n === "Shedletsky") { localStorage.setItem('megablox_active_session', n); window.location.reload(); return; }
+        if (n === "BuildMaster07" && p === "123") { localStorage.setItem('megablox_active_session', n); window.location.reload(); return; }
+        if (n === "???" && p === "???") { localStorage.setItem('megablox_active_session', n); window.location.reload(); return; }
+        if (localStorage.getItem('mb_user_' + n) === p && p) { localStorage.setItem('megablox_active_session', n); window.location.reload(); } else alert('Неверные данные!');
+    });
+}
+function launchOfficialRobloxApp(id) { if (!isLoggedIn) { alert('Войдите!'); return; } alert(`[MegaBLOX Launcher]\n\nЗапуск (Place ID: ${id})...\nИгрок: ${currentCurrentUser}`); window.location.href = "roblox://browserLaunch/1/placeId=" + id; }
+initForum();
 </script>
 </body>
 </html>
